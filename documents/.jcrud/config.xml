@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <mail>
+    <protocol>smtp</protocol>
+    <host>mail.st2msi.net</host>
+    <port>465</port>
+    <user>mailflex@st2msi.net</user>
+    <password>N2qh221iOC2FKnMvJXVaC1VvhLElZR5hfqi3A1UQnFpejngqnE4/AJyrKWUDaZz1ut8nS01WelERFativRFGSYxVvZHMpjUofI74Ozf/X4B0RvZ4Hu4n4CmP5PEhhDhm11Z9c74bIaap5/mjCIVQH/V0WMRXhGqHtSn8r931lHZjUyuf5jJbdT907gIH9MR77ljzY0Cuzf816YRgneqSCUd3TKeck/4fCBPay/KZ8svyP9jcFu7wiIKjc1KEGt8o2nTVd4tb0CEgs5+56ec0QEsiYktBGHJ/MYn1TIr/LF7Lk/uEX0YW8jgNVQtZGW1y3T2xf5gw68hEH95R3BOskA==</password>
+  </mail>
+  <sgbd>
+    <system>mysql</system>
+    <host>localhost</host>
+    <port>3306</port>
+    <database>gestion_utilisateur</database>
+    <user>mysql</user>
+    <password>jPF1g33R5mkhigbeER+dE+cLuD03AHcvlMi9UZ9LvQeZbzwLWPYVb/8mlRznPf3/ciZuW38EEuPr9F/9CLUrJ4ad4T8OVkcj6f0QLRlb5uNBIcMezvNGJFpaFNees4lio5MNKns1/MYUcw0MZ8oh9q4Ny7XelF/4BEX2xj4hJwB8kOZ34UJr7tL7uCr2+JtRDalB//ImiikZixUe7XEHTIifSTcY8gAUTxwRwE1u4QqWfkhhv3X4q4VToKVOruWaUzYAqZxC7MT2LmYt2MYJN5fguBHmemq0TG1VC1Dr3HRhejp2nPsPmvlJ6oW8NcZSXhQTh9Z5A3M0f+ownVGuFg==</password>
+  </sgbd>
+</configuration>
