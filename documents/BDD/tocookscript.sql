@@ -1,19 +1,19 @@
 CREATE TABLE Categorie_CSA(
-   code_categorie INT AUTO_INCREMENT,
+   code VARCHAR(2) ,
    libelle VARCHAR(50) ,
-   PRIMARY KEY(code_categorie)
+   PRIMARY KEY(code)
 );
 
 CREATE TABLE Genre(
-   code_genre INT AUTO_INCREMENT,
+   code VARCHAR(3) ,
    libelle VARCHAR(50) ,
-   PRIMARY KEY(code_genre)
+   PRIMARY KEY(code)
 );
 
 CREATE TABLE Origine(
-   code_origine INT AUTO_INCREMENT,
+   code VARCHAR(3) ,
    libelle VARCHAR(50) ,
-   PRIMARY KEY(code_origine)
+   PRIMARY KEY(code)
 );
 
 CREATE TABLE Emission(
@@ -22,11 +22,11 @@ CREATE TABLE Emission(
    titre_original VARCHAR(150) ,
    annee_production INT,
    num_saison INT,
-   code_origine INT NOT NULL,
-   code_genre INT NOT NULL,
+   code VARCHAR(3)  NOT NULL,
+   code_1 VARCHAR(3)  NOT NULL,
    PRIMARY KEY(Id_Emission),
-   FOREIGN KEY(code_origine) REFERENCES Origine(code_origine),
-   FOREIGN KEY(code_genre) REFERENCES Genre(code_genre)
+   FOREIGN KEY(code) REFERENCES Origine(code),
+   FOREIGN KEY(code_1) REFERENCES Genre(code)
 );
 
 CREATE TABLE Programme(
@@ -34,19 +34,19 @@ CREATE TABLE Programme(
    Id_Emission INT,
    titre VARCHAR(150) ,
    duree INT,
-   code_categorie INT NOT NULL,
+   code VARCHAR(2)  NOT NULL,
    PRIMARY KEY(Id_Programme, Id_Emission),
    FOREIGN KEY(Id_Emission) REFERENCES Emission(Id_Emission),
-   FOREIGN KEY(code_categorie) REFERENCES Categorie_CSA(code_categorie)
+   FOREIGN KEY(code) REFERENCES Categorie_CSA(code)
 );
 
 CREATE TABLE Diffusion(
    Id_Diffusion INT AUTO_INCREMENT,
    jour DATE,
    horaire TIME,
-   direct INT,
+   direct TINYINT,
    Id_Emission INT NOT NULL,
    Id_Programme INT NOT NULL,
    PRIMARY KEY(Id_Diffusion),
-   FOREIGN KEY(Id_Emission, Id_Programme) REFERENCES Programme(Id_Emission, Id_Programme)
+   FOREIGN KEY(Id_Programme, Id_Emission) REFERENCES Programme(Id_Programme, Id_Emission)
 );

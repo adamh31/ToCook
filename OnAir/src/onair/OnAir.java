@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package tocook;
+package onair;
 
 /**
  *
- * @author a.hammerlin
+ * @author Administrator
  */
-public class ToCook {
+public class OnAir {
 
     /**
      * @param args the command line arguments
