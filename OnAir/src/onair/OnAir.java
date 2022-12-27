@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package onair;
+import onair.views.OnAirView;
 
 /**
  *
@@ -14,7 +15,8 @@ public class OnAir {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        OnAirView window = new OnAirView();
+        window.setVisible(true);
     }
     
 }
