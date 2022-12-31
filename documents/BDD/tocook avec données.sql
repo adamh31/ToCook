@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2022 at 02:58 PM
+-- Generation Time: Dec 31, 2022 at 06:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -86,7 +86,8 @@ CREATE TABLE `emission` (
 --
 
 INSERT INTO `emission` (`Id_Emission`, `titre`, `titre_original`, `annee_production`, `num_saison`, `code_origine`, `code_genre`) VALUES
-(1, 'Chefs Saison 1', NULL, 2015, 1, 'OEF', 'SAI');
+(1, 'Chefs Saison 1', NULL, 2015, 1, 'OEF', 'SAI'),
+(2, 'Chefs Saison 2', NULL, 2016, 1, 'OEF', 'SAI');
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,9 @@ CREATE TABLE `programme` (
 --
 
 INSERT INTO `programme` (`Id_Programme`, `Id_Emission`, `titre`, `duree`, `code`) VALUES
-(1, 1, 'Episode 1', 54, 'TP');
+(1, 1, 'Episode 1', 54, 'TP'),
+(2, 2, 'Episode 1', 57, 'TP'),
+(3, 1, 'Episode 2', 50, 'TP');
 
 --
 -- Indexes for dumped tables
@@ -212,13 +215,13 @@ ALTER TABLE `diffusion`
 -- AUTO_INCREMENT for table `emission`
 --
 ALTER TABLE `emission`
-  MODIFY `Id_Emission` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Emission` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `programme`
 --
 ALTER TABLE `programme`
-  MODIFY `Id_Programme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Programme` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
