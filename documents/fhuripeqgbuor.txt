@@ -1,0 +1,33 @@
+1.1
+select count(*) as nbProgrammes from programme where libelle = 'Œuvre d’expression originale française';
+
+1.2
+select sum(durée) as duree_totale from programme
+join Categorie_CSA on Programme.code_categorie = Categorie_CSA.code
+join Diffusion on Programme.id_emission = Diffusion.id_emission
+where Programme.Categorie_CSA != 'Tout public'
+and Diffusion.jour = '2019-05-01'
+and (Diffusion.horaire between '06:00' and '22:30');
+
+1.3
+le programme commence dans la plage horaire autorisée mais la requête ne teste que l'horaire de début de diffusion du programme sans prendre en compte sa durée.
+dans cette situation, on se retrouve alors avec un programme non autorisé diffusé pendant 52 min de 6h a 6h52.
+
+1.4
+c'est dû au left join.
+
+1.5
+125 x 2600 (le nombre d'heures de programmes étrangers multiplié par le coût d'une heure de doublage)
+
+1.6
+8760 x 0.4 x 100 (40% du nombre d'heures dans l'année * le cout d'une heure)
+
+1.7
+0.6 x 5000 (3000 minutes de doublage)
+0.4 x 5000 x 100 (nombre de mots = 200 000)
+
+2.1
+
+
+
+

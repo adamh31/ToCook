@@ -16,6 +16,14 @@ CREATE TABLE Origine(
    PRIMARY KEY(code)
 );
 
+CREATE TABLE Personnes(
+   Id_Personne VARCHAR(50) ,
+   Nom VARCHAR(50) ,
+   Prenom VARCHAR(50) ,
+   Role VARCHAR(50) ,
+   PRIMARY KEY(Id_Personne)
+);
+
 CREATE TABLE Emission(
    Id_Emission INT AUTO_INCREMENT,
    titre VARCHAR(150) ,
@@ -49,4 +57,21 @@ CREATE TABLE Diffusion(
    Id_Programme INT NOT NULL,
    PRIMARY KEY(Id_Diffusion),
    FOREIGN KEY(Id_Programme, Id_Emission) REFERENCES Programme(Id_Programme, Id_Emission)
+);
+
+CREATE TABLE Fixe(
+   Id_Emission INT,
+   Id_Personne VARCHAR(50) ,
+   PRIMARY KEY(Id_Emission, Id_Personne),
+   FOREIGN KEY(Id_Emission) REFERENCES Emission(Id_Emission),
+   FOREIGN KEY(Id_Personne) REFERENCES Personnes(Id_Personne)
+);
+
+CREATE TABLE SPF(
+   Id_Emission INT,
+   Id_Programme INT,
+   Id_Personne VARCHAR(50) ,
+   PRIMARY KEY(Id_Emission, Id_Programme, Id_Personne),
+   FOREIGN KEY(Id_Emission, Id_Programme) REFERENCES Programme(Id_Emission, Id_Programme),
+   FOREIGN KEY(Id_Personne) REFERENCES Personnes(Id_Personne)
 );
