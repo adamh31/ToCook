@@ -27,7 +27,63 @@ c'est dû au left join.
 0.4 x 5000 x 100 (nombre de mots = 200 000)
 
 2.1
+public boolean setLeJour(Date dateDiffusion){
+    if(dateDiffusion > this.leJour){
+        this.leJour = dateDiffusion;
+        return true; 
+    }
+    return false;
+}
+
+2.2
+public String diffusionsXML(Date uneDate){
+    String xml;
+    SimpleDateFormat sf=new SimpleDateFormat("yyyy-mm-dd");
+    xml = "<?xml version = \"1.0\" encoding=\"UTF-8\" ?>";
+    xml += "<programmation>";
+    xml += "<jour>" + sf.format(uneDate) + "</jour>";
+    xml += "<diffusions>";
+    for(lesDiffusions : laDiffusion){
+        if(laDiffusion.leJour == uneDate){
+            xml += laDiffusion.toXML();
+        }
+    }
+    xml += "</diffusions>";
+    xml += "</programmation>";
+    return xml;
+}
 
 
+2.3
+public String toXML(){
+    String xml;
+    xml = <diffusion>;
+    xml += "<horaire>" + this.horaire + "</horaire>";
+    xml += "<duree>" + this.leProgramme.getDuree() + "</duree>";
+    xml += "<emission>" + this.emission + "</emission>";
+    xml += "<programme>" + this.leProgramme + "</programme>";
+    xml += "<csa>" + this.leProgramme.getLaCategorieCsa() + "</csa>";
+    xml += </diffusion>";
+    return xml;
+}
 
+2.4
+public void testToXML() {
+    Date uneDate = new Date (LocalDate.parse("2019-06-01"));
+    CategorieCSA uneCateg = new CategorieCSA("TP", "Tout public");
+    Emission uneEmi = new Emission(212234, "Chefs Saison 1");
+    Programme unProg = new Programme(uneEmi, 1, "Épisode 1", 47, uneCateg);
+    Diffusion uneDiff = new Diffusion(unProg, 8, uneDate, "13:30:00", false);
+    String resultat = "<diffusion>
+                            <horaire>13:30:00</horaire>
+                            <duree>47</duree>
+                            <emission> Chefs Saison 1 </emission>
+                            <programme>Épisode 1</programme>
+                            <csa>Tout public</csa>
+                        </diffusion>";
+
+    Diffusion uneDiffusion = new Diffusion();
+    
+
+}
 
