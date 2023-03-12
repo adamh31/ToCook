@@ -89,4 +89,16 @@ public void testToXML() {
 
 2.5
 public getDiffusionsEnDirect(Date unedate){
+
+}
+
+3.1
+PrommageCulinaire(dateEnregistrement, dateFirstDiffusion, duree, nbrPlace, nbrPlaceVIP)
+clé primaire: id
+clé étrangère: 
+
+Type_Intervenants(presentateur, chroniqueur, cuisinier_invite)
+clé primaire:
+clé étrangère:
     
+4.1
