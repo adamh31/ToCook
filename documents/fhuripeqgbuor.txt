@@ -87,3 +87,6 @@ public void testToXML() {
 
 }
 
+2.5
+public getDiffusionsEnDirect(Date unedate){
+    
