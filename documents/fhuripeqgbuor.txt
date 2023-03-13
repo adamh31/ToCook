@@ -101,12 +101,12 @@ public ArrayList<Diffusion> getDiffusionsEnDirect(Date uneDate){
 }
 
 3.1
-PrommageCulinaire(dateEnregistrement, dateFirstDiffusion, duree, nbrPlace, nbrPlaceVIP)
+ProgrammeCulinaire(dateEnregistrement, dateFirstDiffusion, duree, nbrPlace, nbrPlaceVIP)
 clé primaire: id
 clé étrangère: 
 
-Type_Intervenants(presentateur, chroniqueur, cuisinier_invite)
-clé primaire:
+Intervenants(idIntervenant, presentateur, chroniqueur, cuisinier_invite)
+clé primaire:idIntervenant
 clé étrangère:
     
 4.1
