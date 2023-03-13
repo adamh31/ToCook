@@ -28,7 +28,7 @@ c'est dû au left join.
 
 2.1
 public boolean setLeJour(Date dateDiffusion){
-    if(dateDiffusion > this.leJour){
+    if(dateDiffusion.after(this.leJour)){
         this.leJour = dateDiffusion;
         return true; 
     }
@@ -44,7 +44,7 @@ public String diffusionsXML(Date uneDate){
     xml += "<jour>" + sf.format(uneDate) + "</jour>";
     xml += "<diffusions>";
     for(lesDiffusions : laDiffusion){
-        if(laDiffusion.leJour == uneDate){
+        if(laDiffusion.leJour.equals(uneDate)){
             xml += laDiffusion.toXML();
         }
     }
@@ -88,7 +88,14 @@ public void testToXML() {
 }
 
 2.5
-public getDiffusionsEnDirect(Date unedate){
+public ArrayList<Diffusion> getDiffusionsEnDirect(Date uneDate){
+    ArrayList<Diffusion> diffusions = new ArrayList<Diffsuion>();
+    for(laDiffusion : this.lesDiffusions){
+        if(laDiffusion.getLeJour().equals(uneDate) && laDiffusion.getDirect() == true){
+            diffusions.add(laDiffusion);
+        }
+    }
+    return diffusion;
 
 }
 
@@ -102,3 +109,16 @@ clé primaire:
 clé étrangère:
     
 4.1
+l'erreur dans le ticket d'incident décrit un probleme de connection à la base de données.
+le message d'erreur dit qu'il n'arrive pas a se connecter a un server avec l'adresse localhost.
+cette adresse a pu etre utilisée pendant la phase de développement avec une copie locale de 
+la base de données et le développeur a surement oublié de remettre les informations de 
+connection de la base de données distante lorsqu'il a mis son code en producion.
+
+4.2
+le serveur ftp est situé sur le meme réseau que le dhcp, le dns et le serveur de messagerie, dans une dmz.
+tous ces serveurs sont sensibles, il est donc normal qu'ils soient séparés d'internet par plusieurs couches de protection.
+
+4.3
+la qualité du service de streaming en replay sera définie par l'offre disponible (capacité de stockage des serveurs)
+et la qualité de la vidéo (le débit maximum des serveurs)
