@@ -68,7 +68,7 @@ public String toXML(){
 }
 
 2.4
-public void testToXML() {
+public bool testToXML() {
     Date uneDate = new Date (LocalDate.parse("2019-06-01"));
     CategorieCSA uneCateg = new CategorieCSA("TP", "Tout public");
     Emission uneEmi = new Emission(212234, "Chefs Saison 1");
@@ -81,8 +81,9 @@ public void testToXML() {
                             <programme>Épisode 1</programme>
                             <csa>Tout public</csa>
                         </diffusion>";
+    
 
-    Diffusion uneDiffusion = new Diffusion();
+    return uneDiff.toXML() == resultat;
     
 
 }
