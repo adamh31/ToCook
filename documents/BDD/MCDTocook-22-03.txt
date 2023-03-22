@@ -1,0 +1,91 @@
+CREATE TABLE Categorie_CSA(
+   code VARCHAR(2) ,
+   libelle VARCHAR(50) ,
+   PRIMARY KEY(code)
+);
+
+CREATE TABLE Genre(
+   code VARCHAR(3) ,
+   libelle VARCHAR(50) ,
+   PRIMARY KEY(code)
+);
+
+CREATE TABLE Origine(
+   code VARCHAR(3) ,
+   libelle VARCHAR(50) ,
+   PRIMARY KEY(code)
+);
+
+CREATE TABLE intervenants(
+   id_Intervenant INT,
+   nom VARCHAR(50) ,
+   prenom VARCHAR(50) ,
+   adresse VARCHAR(50) ,
+   tel CHAR(10) ,
+   type VARCHAR(50) ,
+   PRIMARY KEY(id_Intervenant)
+);
+
+CREATE TABLE Emission(
+   Id_Emission INT AUTO_INCREMENT,
+   titre VARCHAR(150) ,
+   titre_original VARCHAR(150) ,
+   annee_production INT,
+   num_saison INT,
+   code VARCHAR(3)  NOT NULL,
+   code_1 VARCHAR(3)  NOT NULL,
+   PRIMARY KEY(Id_Emission),
+   FOREIGN KEY(code) REFERENCES Origine(code),
+   FOREIGN KEY(code_1) REFERENCES Genre(code)
+);
+
+CREATE TABLE Programme(
+   Id_Emission INT,
+   Id_Programme INT,
+   titre VARCHAR(150) ,
+   duree INT,
+   code VARCHAR(2)  NOT NULL,
+   PRIMARY KEY(Id_Emission, Id_Programme),
+   FOREIGN KEY(Id_Emission) REFERENCES Emission(Id_Emission),
+   FOREIGN KEY(code) REFERENCES Categorie_CSA(code)
+);
+
+CREATE TABLE Programme_culinaire(
+   Id_Emission INT,
+   Id_Programme INT,
+   dateEnregistrement DATE,
+   dateFirstDiffusion DATE,
+   duree INT,
+   nbrPlaces INT,
+   nbrPlacesVIP INT,
+   PRIMARY KEY(Id_Emission, Id_Programme),
+   FOREIGN KEY(Id_Emission, Id_Programme) REFERENCES Programme(Id_Emission, Id_Programme)
+);
+
+CREATE TABLE Diffusion(
+   Id_Diffusion INT AUTO_INCREMENT,
+   jour DATE,
+   horaire TIME,
+   direct INT,
+   Id_Emission INT NOT NULL,
+   Id_Programme INT NOT NULL,
+   PRIMARY KEY(Id_Diffusion),
+   FOREIGN KEY(Id_Emission, Id_Programme) REFERENCES Programme(Id_Emission, Id_Programme)
+);
+
+CREATE TABLE intervenant_has_emission(
+   Id_Emission INT,
+   id_Intervenant INT,
+   PRIMARY KEY(Id_Emission, id_Intervenant),
+   FOREIGN KEY(Id_Emission) REFERENCES Emission(Id_Emission),
+   FOREIGN KEY(id_Intervenant) REFERENCES intervenants(id_Intervenant)
+);
+
+CREATE TABLE intervenant_has_programme(
+   Id_Emission INT,
+   Id_Programme INT,
+   id_Intervenant INT,
+   PRIMARY KEY(Id_Emission, Id_Programme, id_Intervenant),
+   FOREIGN KEY(Id_Emission, Id_Programme) REFERENCES Programme(Id_Emission, Id_Programme),
+   FOREIGN KEY(id_Intervenant) REFERENCES intervenants(id_Intervenant)
+);
