@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package onair;
-import onair.views.OnAirView;
+
+import onair.database.DatabaseAccess;
+import onair.views.Calendrier;
 
 /**
  *
@@ -15,8 +17,9 @@ public class OnAir {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        OnAirView window = new OnAirView();
-        window.setVisible(true);
+        DatabaseAccess data = new DatabaseAccess();
+        Calendrier calendrier = new Calendrier();
+        calendrier.setVisible(true);
     }
     
 }
