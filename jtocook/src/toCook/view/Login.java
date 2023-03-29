@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(connecter);
-        connecter.setBounds(240, 250, 130, 30);
+        connecter.setBounds(240, 250, 130, 26);
 
         labelPseudo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labelPseudo.setForeground(new java.awt.Color(252, 220, 49));
@@ -65,6 +65,11 @@ public class Login extends javax.swing.JFrame {
         uiPseudo.setBackground(new java.awt.Color(255,255,255,120));
         uiPseudo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         uiPseudo.setForeground(new java.awt.Color(255, 255, 255));
+        uiPseudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uiPseudoActionPerformed(evt);
+            }
+        });
         getContentPane().add(uiPseudo);
         uiPseudo.setBounds(200, 140, 240, 32);
 
@@ -105,6 +110,10 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_connecterMouseClicked
+
+    private void uiPseudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiPseudoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uiPseudoActionPerformed
 
     /**
      * @param args the command line arguments
