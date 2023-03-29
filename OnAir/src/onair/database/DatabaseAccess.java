@@ -21,6 +21,29 @@ public class DatabaseAccess {
         } catch(Exception e){
             System.out.println(e);
         }
+        this.test();
+    }
+    
+    public String test(){
+            String test = "";
+        try{
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from intervenants");
+            System.out.println("succes");
+            while (rs.next()){
+                test = rs.getString(2);
+                
+                
+                
+                
+            }
+            System.out.println(test);
+            return test;
+        } catch(Exception e){
+            System.out.println("nope");
+            
+        }
+        return test;
     }
 
     
