@@ -6,6 +6,7 @@ package onair;
 
 import onair.database.DatabaseAccess;
 import onair.views.Calendrier;
+import java.sql*
 
 /**
  *
@@ -20,6 +21,13 @@ public class OnAir {
         DatabaseAccess data = new DatabaseAccess();
         Calendrier calendrier = new Calendrier();
         calendrier.setVisible(true);
+        
+    }
+    
+    public static void journee(){
+        
+        Connection con = DriverManager.getConnection("jdbc:mysql://https://phpmyadmin.alwaysdata.com/phpmyadmin/index.php?route=/sql&server=1&db=tocook_bdd&table=Diffusion&pos=0", "tocook", "Btssio82300");
+        
         
     }
     
