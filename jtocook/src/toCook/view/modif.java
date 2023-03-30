@@ -75,7 +75,8 @@ public class modif extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("T");
+        jButton1.setText("Enregistrer");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
