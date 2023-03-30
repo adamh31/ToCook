@@ -2,11 +2,16 @@ package toCook.view;
 
 import toCook.DAO.UtilisateurDAO;
 import toCook.model.Utilisateur;
+import java.awt.Color; 
+import javax.swing.border.Border;
 
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
+        
+        Color col = new Color(255,199,199); 
+        getContentPane().setBackground(col); 
 
     }
 
@@ -20,16 +25,23 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
+        uiBackground = new javax.swing.JLabel();
         Entete = new javax.swing.JLabel();
         connecter = new javax.swing.JButton();
         labelPseudo = new javax.swing.JLabel();
         uiPseudo = new javax.swing.JTextField();
         labelPass = new javax.swing.JLabel();
         uiPass = new javax.swing.JPasswordField();
-        uiBackground = new javax.swing.JLabel();
+
+        uiBackground.setBackground(new java.awt.Color(255, 153, 153));
+        uiBackground.setForeground(new java.awt.Color(255, 153, 153));
+        uiBackground.setToolTipText("");
+        uiBackground.setMaximumSize(new java.awt.Dimension(700, 430));
+        uiBackground.setMinimumSize(new java.awt.Dimension(700, 430));
+        uiBackground.setPreferredSize(new java.awt.Dimension(700, 430));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("view.Login");
+        setTitle("Login");
         setMinimumSize(new java.awt.Dimension(577, 392));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -37,8 +49,7 @@ public class Login extends javax.swing.JFrame {
         Entete.setBackground(new java.awt.Color(255,255,255,120));
         Entete.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Entete.setForeground(new java.awt.Color(255, 0, 0));
-        Entete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/java_64.png"))); // NOI18N
-        Entete.setText("Se connecter");
+        Entete.setText("Se connecter à ToCook");
         Entete.setIconTextGap(22);
         Entete.setOpaque(true);
         getContentPane().add(Entete);
@@ -53,11 +64,16 @@ public class Login extends javax.swing.JFrame {
                 connecterMouseClicked(evt);
             }
         });
+        connecter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                connecterActionPerformed(evt);
+            }
+        });
         getContentPane().add(connecter);
         connecter.setBounds(240, 250, 130, 26);
 
         labelPseudo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labelPseudo.setForeground(new java.awt.Color(252, 220, 49));
+        labelPseudo.setForeground(new java.awt.Color(51, 51, 51));
         labelPseudo.setText("Utilisateur :");
         getContentPane().add(labelPseudo);
         labelPseudo.setBounds(100, 140, 100, 24);
@@ -74,7 +90,7 @@ public class Login extends javax.swing.JFrame {
         uiPseudo.setBounds(200, 140, 240, 32);
 
         labelPass.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labelPass.setForeground(new java.awt.Color(252, 220, 49));
+        labelPass.setForeground(new java.awt.Color(51, 51, 51));
         labelPass.setText("Mot de passe :");
         getContentPane().add(labelPass);
         labelPass.setBounds(100, 180, 100, 24);
@@ -85,14 +101,6 @@ public class Login extends javax.swing.JFrame {
         uiPass.setText("jPasswordField1");
         getContentPane().add(uiPass);
         uiPass.setBounds(200, 180, 240, 32);
-
-        uiBackground.setBackground(new java.awt.Color(255,255,255,70));
-        uiBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/fec_dark.jpg"))); // NOI18N
-        uiBackground.setMaximumSize(new java.awt.Dimension(700, 430));
-        uiBackground.setMinimumSize(new java.awt.Dimension(700, 430));
-        uiBackground.setPreferredSize(new java.awt.Dimension(700, 430));
-        getContentPane().add(uiBackground);
-        uiBackground.setBounds(0, 0, 580, 360);
 
         pack();
         setLocationRelativeTo(null);
@@ -114,6 +122,10 @@ public class Login extends javax.swing.JFrame {
     private void uiPseudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiPseudoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_uiPseudoActionPerformed
+
+    private void connecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connecterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_connecterActionPerformed
 
     /**
      * @param args the command line arguments
