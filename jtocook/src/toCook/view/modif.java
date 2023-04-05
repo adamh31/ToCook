@@ -31,56 +31,186 @@ public class modif extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        Titre = new javax.swing.JTextField();
-        Titre1 = new javax.swing.JTextField();
-        Titre2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        titre_modif = new javax.swing.JLabel();
+        duree_modif = new javax.swing.JLabel();
+        code_modif = new javax.swing.JLabel();
+        top = new javax.swing.JLabel();
+        entree_duree = new javax.swing.JTextField();
+        entree_titre = new javax.swing.JTextField();
+        entree_code = new javax.swing.JTextField();
+        enregistrer = new javax.swing.JButton();
+        intervenant_modif = new javax.swing.JLabel();
+        entree_intervenant = new javax.swing.JTextField();
+        genre_modif = new javax.swing.JLabel();
+        entree_genre = new javax.swing.JTextField();
+        categoriecsa_modif = new javax.swing.JLabel();
+        entree_categoriecsa = new javax.swing.JTextField();
+        paneau_haut = new javax.swing.JPanel();
+        date_modif = new javax.swing.JLabel();
+        entree_date = new javax.swing.JTextField();
+        hdebut_modif = new javax.swing.JLabel();
+        entree_hdebut = new javax.swing.JTextField();
+        hfin_modif = new javax.swing.JLabel();
+        entree_hfin = new javax.swing.JTextField();
+        categoriecsa_modif1 = new javax.swing.JLabel();
+        entree_categoriecsa1 = new javax.swing.JTextField();
+        categoriecsa_modif2 = new javax.swing.JLabel();
+        direct_entree = new javax.swing.JComboBox<>();
+        categoriecsa_modif3 = new javax.swing.JLabel();
+        direct_entree1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
-        jLabel1.setText("Titre");
+        titre_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        titre_modif.setText("Titre");
 
-        jLabel2.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
-        jLabel2.setText("Duree");
+        duree_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        duree_modif.setText("Duree");
 
-        jLabel3.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
-        jLabel3.setText("Code");
+        code_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        code_modif.setText("Code");
 
-        jLabel4.setFont(new java.awt.Font("ASimpleLife", 1, 18)); // NOI18N
-        jLabel4.setText("Modification du programme");
+        top.setFont(new java.awt.Font("ASimpleLife", 1, 18)); // NOI18N
+        top.setText("Modification du programme");
 
-        Titre.setToolTipText("");
-        Titre.addActionListener(new java.awt.event.ActionListener() {
+        entree_duree.setToolTipText("");
+        entree_duree.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TitreActionPerformed(evt);
+                entree_dureeActionPerformed(evt);
             }
         });
 
-        Titre1.setToolTipText("");
-        Titre1.addActionListener(new java.awt.event.ActionListener() {
+        entree_titre.setToolTipText("");
+        entree_titre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Titre1ActionPerformed(evt);
+                entree_titreActionPerformed(evt);
             }
         });
 
-        Titre2.setToolTipText("");
-        Titre2.addActionListener(new java.awt.event.ActionListener() {
+        entree_code.setToolTipText("");
+        entree_code.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Titre2ActionPerformed(evt);
+                entree_codeActionPerformed(evt);
             }
         });
 
-        jButton1.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
-        jButton1.setText("Enregistrer");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        enregistrer.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        enregistrer.setText("Enregistrer");
+        enregistrer.setBorderPainted(false);
+        enregistrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                enregistrerActionPerformed(evt);
+            }
+        });
+
+        intervenant_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        intervenant_modif.setText("Intervenant");
+
+        entree_intervenant.setToolTipText("");
+        entree_intervenant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_intervenantActionPerformed(evt);
+            }
+        });
+
+        genre_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        genre_modif.setText("Genre");
+
+        entree_genre.setToolTipText("");
+        entree_genre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_genreActionPerformed(evt);
+            }
+        });
+
+        categoriecsa_modif.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        categoriecsa_modif.setText("Categorie CSA");
+
+        entree_categoriecsa.setToolTipText("");
+        entree_categoriecsa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_categoriecsaActionPerformed(evt);
+            }
+        });
+
+        date_modif.setText("Date");
+
+        entree_date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_dateActionPerformed(evt);
+            }
+        });
+
+        hdebut_modif.setText("Heure debut");
+
+        entree_hdebut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_hdebutActionPerformed(evt);
+            }
+        });
+
+        hfin_modif.setText("Heure fin");
+
+        javax.swing.GroupLayout paneau_hautLayout = new javax.swing.GroupLayout(paneau_haut);
+        paneau_haut.setLayout(paneau_hautLayout);
+        paneau_hautLayout.setHorizontalGroup(
+            paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneau_hautLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(date_modif)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(entree_date, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(hdebut_modif)
+                .addGap(18, 18, 18)
+                .addComponent(entree_hdebut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(hfin_modif)
+                .addGap(18, 18, 18)
+                .addComponent(entree_hfin, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+        paneau_hautLayout.setVerticalGroup(
+            paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneau_hautLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(date_modif)
+                    .addComponent(entree_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hdebut_modif)
+                    .addComponent(entree_hdebut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hfin_modif)
+                    .addComponent(entree_hfin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        categoriecsa_modif1.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        categoriecsa_modif1.setText("Lien Image");
+
+        entree_categoriecsa1.setToolTipText("");
+        entree_categoriecsa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entree_categoriecsa1ActionPerformed(evt);
+            }
+        });
+
+        categoriecsa_modif2.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        categoriecsa_modif2.setText("En direct ?");
+
+        direct_entree.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oui", "Non" }));
+        direct_entree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                direct_entreeActionPerformed(evt);
+            }
+        });
+
+        categoriecsa_modif3.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
+        categoriecsa_modif3.setText("Programme culinaire");
+
+        direct_entree1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oui", "Non" }));
+        direct_entree1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                direct_entree1ActionPerformed(evt);
             }
         });
 
@@ -91,68 +221,151 @@ public class modif extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Titre1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Titre2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(Titre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jLabel4))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(325, 325, 325)
-                        .addComponent(jButton1)))
-                .addContainerGap(281, Short.MAX_VALUE))
+                        .addComponent(enregistrer))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(282, 282, 282)
+                        .addComponent(top))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(titre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_titre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(paneau_haut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(duree_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(code_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_code, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(intervenant_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entree_intervenant, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(categoriecsa_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_categoriecsa, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(genre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(categoriecsa_modif1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(entree_categoriecsa1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Titre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(top)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(paneau_haut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Titre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(titre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_titre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Titre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                    .addComponent(duree_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(code_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(intervenant_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_intervenant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoriecsa_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_categoriecsa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoriecsa_modif1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entree_categoriecsa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(enregistrer)
                 .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TitreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitreActionPerformed
+    private void entree_dureeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_dureeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TitreActionPerformed
+    }//GEN-LAST:event_entree_dureeActionPerformed
 
-    private void Titre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Titre1ActionPerformed
+    private void entree_titreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_titreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Titre1ActionPerformed
+    }//GEN-LAST:event_entree_titreActionPerformed
 
-    private void Titre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Titre2ActionPerformed
+    private void entree_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_codeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Titre2ActionPerformed
+    }//GEN-LAST:event_entree_codeActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_enregistrerActionPerformed
+
+    private void entree_intervenantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_intervenantActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_intervenantActionPerformed
+
+    private void entree_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_dateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_dateActionPerformed
+
+    private void entree_hdebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_hdebutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_hdebutActionPerformed
+
+    private void entree_genreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_genreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_genreActionPerformed
+
+    private void entree_categoriecsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_categoriecsaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_categoriecsaActionPerformed
+
+    private void entree_categoriecsa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_categoriecsa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entree_categoriecsa1ActionPerformed
+
+    private void direct_entreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direct_entreeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direct_entreeActionPerformed
+
+    private void direct_entree1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direct_entree1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_direct_entree1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,13 +403,32 @@ public class modif extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Titre;
-    private javax.swing.JTextField Titre1;
-    private javax.swing.JTextField Titre2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel categoriecsa_modif;
+    private javax.swing.JLabel categoriecsa_modif1;
+    private javax.swing.JLabel categoriecsa_modif2;
+    private javax.swing.JLabel categoriecsa_modif3;
+    private javax.swing.JLabel code_modif;
+    private javax.swing.JLabel date_modif;
+    private javax.swing.JComboBox<String> direct_entree;
+    private javax.swing.JComboBox<String> direct_entree1;
+    private javax.swing.JLabel duree_modif;
+    private javax.swing.JButton enregistrer;
+    private javax.swing.JTextField entree_categoriecsa;
+    private javax.swing.JTextField entree_categoriecsa1;
+    private javax.swing.JTextField entree_code;
+    private javax.swing.JTextField entree_date;
+    private javax.swing.JTextField entree_duree;
+    private javax.swing.JTextField entree_genre;
+    private javax.swing.JTextField entree_hdebut;
+    private javax.swing.JTextField entree_hfin;
+    private javax.swing.JTextField entree_intervenant;
+    private javax.swing.JTextField entree_titre;
+    private javax.swing.JLabel genre_modif;
+    private javax.swing.JLabel hdebut_modif;
+    private javax.swing.JLabel hfin_modif;
+    private javax.swing.JLabel intervenant_modif;
+    private javax.swing.JPanel paneau_haut;
+    private javax.swing.JLabel titre_modif;
+    private javax.swing.JLabel top;
     // End of variables declaration//GEN-END:variables
 }
