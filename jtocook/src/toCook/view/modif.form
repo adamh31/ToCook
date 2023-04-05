@@ -53,19 +53,9 @@
                               <Component id="entree_code" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="intervenant_modif" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="intervenant_modif" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="entree_intervenant" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="categoriecsa_modif" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="entree_categoriecsa" min="-2" pref="144" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="genre_modif" min="-2" pref="90" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="entree_genre" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="categoriecsa_modif1" min="-2" pref="90" max="-2" attributes="0"/>
@@ -73,15 +63,24 @@
                               <Component id="entree_categoriecsa1" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="categoriecsa_modif2" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="categoriecsa_modif3" min="-2" pref="125" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="direct_entree1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="direct_entree" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="categoriecsa_modif3" min="-2" pref="159" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="direct_entree1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="genre_modif" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="entree_genre" min="-2" pref="144" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="categoriecsa_modif" min="-2" pref="122" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="entree_categoriecsa" min="-2" pref="144" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="categoriecsa_modif2" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="direct_entree" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -95,42 +94,46 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="top" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="paneau_haut" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="titre_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_titre" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="duree_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_duree" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="code_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_code" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="intervenant_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_intervenant" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="genre_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_genre" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="categoriecsa_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_categoriecsa" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="categoriecsa_modif1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="entree_categoriecsa1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="paneau_haut" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="titre_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_titre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="duree_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_duree" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="code_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_code" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="intervenant_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_intervenant" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="genre_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_genre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="entree_categoriecsa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="categoriecsa_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="categoriecsa_modif1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="entree_categoriecsa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -142,7 +145,7 @@
                   <Component id="categoriecsa_modif3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="direct_entree1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
               <Component id="enregistrer" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
@@ -153,25 +156,25 @@
     <Component class="javax.swing.JLabel" name="titre_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Titre"/>
+        <Property name="text" type="java.lang.String" value="Titre :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="duree_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Duree"/>
+        <Property name="text" type="java.lang.String" value="Duree :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="code_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Code"/>
+        <Property name="text" type="java.lang.String" value="Code :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="top">
@@ -209,7 +212,7 @@
     <Component class="javax.swing.JButton" name="enregistrer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="12" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Enregistrer"/>
         <Property name="borderPainted" type="boolean" value="false"/>
@@ -221,9 +224,9 @@
     <Component class="javax.swing.JLabel" name="intervenant_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Intervenant"/>
+        <Property name="text" type="java.lang.String" value="Intervenant :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="entree_intervenant">
@@ -237,9 +240,9 @@
     <Component class="javax.swing.JLabel" name="genre_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Genre"/>
+        <Property name="text" type="java.lang.String" value="Genre :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="entree_genre">
@@ -253,7 +256,7 @@
     <Component class="javax.swing.JLabel" name="categoriecsa_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Categorie CSA"/>
       </Properties>
@@ -267,6 +270,11 @@
       </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="paneau_haut">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="94" green="94" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -308,6 +316,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="date_modif">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="ASimpleLife" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
         </Component>
@@ -318,6 +329,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="hdebut_modif">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="ASimpleLife" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Heure debut"/>
           </Properties>
         </Component>
@@ -328,6 +342,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="hfin_modif">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="ASimpleLife" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Heure fin"/>
           </Properties>
         </Component>
@@ -338,7 +355,7 @@
     <Component class="javax.swing.JLabel" name="categoriecsa_modif1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Lien Image"/>
       </Properties>
@@ -354,7 +371,7 @@
     <Component class="javax.swing.JLabel" name="categoriecsa_modif2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="En direct ?"/>
       </Properties>
@@ -378,7 +395,7 @@
     <Component class="javax.swing.JLabel" name="categoriecsa_modif3">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="ASimpleLife" size="12" style="0"/>
+          <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Programme culinaire"/>
       </Properties>
