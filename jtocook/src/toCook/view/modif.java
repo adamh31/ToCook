@@ -75,6 +75,7 @@ public class modif extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("ASimpleLife", 0, 12)); // NOI18N
         jButton1.setText("Enregistrer");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
