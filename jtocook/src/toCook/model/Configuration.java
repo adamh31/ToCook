@@ -27,7 +27,7 @@ public class Configuration {
     }
 
     public String getSgbdSys() {
-        return sgbdSys;
+        return "mysql";
     }
 
     public void setSgbdSys(String sgbdSys) {
@@ -75,23 +75,23 @@ public class Configuration {
     }
 
     public String getSgbdHost() {
-        return sgbdHost;
+        return "mysql-tocook.alwaysdata.net";
     }
 
     public String getSgbdPort() {
-        return sgbdPort;
+        return "3306";
     }
 
     public String getSgbdDb() {
-        return sgbdDb;
+        return "tocook_bdd?useSSL=false";
     }
 
     public String getSgbdUser() {
-        return sgbdUser;
+        return "tocook";
     }
 
     public String getSgbdPass() {
-        return sgbdPass;
+        return "Btssio82300";
     }
     
 }
