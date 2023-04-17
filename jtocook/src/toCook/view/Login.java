@@ -48,7 +48,8 @@ public class Login extends javax.swing.JFrame {
 
         Entete.setBackground(new java.awt.Color(255,255,255,120));
         Entete.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        Entete.setForeground(new java.awt.Color(255, 0, 0));
+        Entete.setForeground(new java.awt.Color(0, 0, 0));
+        Entete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Entete.setText("Se connecter à ToCook");
         Entete.setIconTextGap(22);
         Entete.setOpaque(true);
@@ -73,14 +74,14 @@ public class Login extends javax.swing.JFrame {
         connecter.setBounds(240, 250, 130, 26);
 
         labelPseudo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labelPseudo.setForeground(new java.awt.Color(51, 51, 51));
+        labelPseudo.setForeground(new java.awt.Color(0, 0, 0));
         labelPseudo.setText("Utilisateur :");
         getContentPane().add(labelPseudo);
         labelPseudo.setBounds(100, 140, 100, 24);
 
         uiPseudo.setBackground(new java.awt.Color(255,255,255,120));
         uiPseudo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        uiPseudo.setForeground(new java.awt.Color(255, 255, 255));
+        uiPseudo.setForeground(new java.awt.Color(0, 0, 0));
         uiPseudo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uiPseudoActionPerformed(evt);
@@ -90,15 +91,20 @@ public class Login extends javax.swing.JFrame {
         uiPseudo.setBounds(200, 140, 240, 32);
 
         labelPass.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        labelPass.setForeground(new java.awt.Color(51, 51, 51));
+        labelPass.setForeground(new java.awt.Color(0, 0, 0));
         labelPass.setText("Mot de passe :");
         getContentPane().add(labelPass);
         labelPass.setBounds(100, 180, 100, 24);
 
         uiPass.setBackground(new java.awt.Color(255,255,255,120));
         uiPass.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
-        uiPass.setForeground(new java.awt.Color(255, 255, 255));
+        uiPass.setForeground(new java.awt.Color(0, 0, 0));
         uiPass.setText("jPasswordField1");
+        uiPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uiPassActionPerformed(evt);
+            }
+        });
         getContentPane().add(uiPass);
         uiPass.setBounds(200, 180, 240, 32);
 
@@ -126,6 +132,10 @@ public class Login extends javax.swing.JFrame {
     private void connecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connecterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_connecterActionPerformed
+
+    private void uiPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uiPassActionPerformed
 
     /**
      * @param args the command line arguments

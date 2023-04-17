@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import toCook.model.Configuration;
 import toCook.DAO.ConfigDAO;
+//package jtocook.database;
+
+import java.sql.*;
 
 /**
  *
@@ -21,14 +24,16 @@ public class ConnectDB {
    Double objectif : la méthode pourra lever l'exception, charge à la méthode appellante de traiter cette exception (propagation).*/
     public static Connection getConnect() throws Exception {
         char[] truc;
+        //Connection con = DriverManager.getConnection("jdbc:mysql://mysql-tocook.alwaysdata.net/tocook_bdd?useSSL=false", "tocook", "Btssio82300");
         Configuration c = ConfigDAO.getConfiguration();
         String driver = "com.mysql.cj.jdbc.Driver"; // par defaut
-        if(c.getSgbdSys().equals("mysql")) {
-                driver = "com.mysql.cj.jdbc.Driver";
-        } else {
+       // if(c.getSgbdSys().equals("mysql")) {
+                //driver = "com.mysql.cj.jdbc.Driver";
+       /* } else {
                 driver = "org.postgresql.Driver";
-        }
+        }*/
         String url = "jdbc:"+c.getSgbdSys()+"://"+c.getSgbdHost()+":"+c.getSgbdPort()+"/"+c.getSgbdDb();
+        System.out.println(url);
         if (con == null ) {
             Class.forName(driver);
             con = DriverManager.getConnection(url, c.getSgbdUser(), c.getSgbdPass());
