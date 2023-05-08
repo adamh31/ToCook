@@ -83,9 +83,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="12" style="1"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ressources/valid_20.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Connexion"/>
         <Property name="toolTipText" type="java.lang.String" value="Envoyer le mail &#xe0; son destinataire"/>
       </Properties>

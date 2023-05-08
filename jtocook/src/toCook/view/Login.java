@@ -57,7 +57,6 @@ public class Login extends javax.swing.JFrame {
         Entete.setBounds(0, 0, 580, 71);
 
         connecter.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        connecter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/valid_20.png"))); // NOI18N
         connecter.setText("Connexion");
         connecter.setToolTipText("Envoyer le mail à son destinataire");
         connecter.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,7 +70,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(connecter);
-        connecter.setBounds(240, 250, 130, 26);
+        connecter.setBounds(240, 250, 130, 23);
 
         labelPseudo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labelPseudo.setForeground(new java.awt.Color(0, 0, 0));

@@ -33,7 +33,6 @@ public class ConnectDB {
                 driver = "org.postgresql.Driver";
         }*/
         String url = "jdbc:"+c.getSgbdSys()+"://"+c.getSgbdHost()+":"+c.getSgbdPort()+"/"+c.getSgbdDb();
-        System.out.println(url);
         if (con == null ) {
             Class.forName(driver);
             con = DriverManager.getConnection(url, c.getSgbdUser(), c.getSgbdPass());
