@@ -70,7 +70,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(connecter);
-        connecter.setBounds(240, 250, 130, 23);
+        connecter.setBounds(240, 250, 130, 22);
 
         labelPseudo.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         labelPseudo.setForeground(new java.awt.Color(0, 0, 0));
@@ -81,6 +81,7 @@ public class Login extends javax.swing.JFrame {
         uiPseudo.setBackground(new java.awt.Color(255,255,255,120));
         uiPseudo.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         uiPseudo.setForeground(new java.awt.Color(0, 0, 0));
+        uiPseudo.setText("BigBoss");
         uiPseudo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uiPseudoActionPerformed(evt);
