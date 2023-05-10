@@ -287,6 +287,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
         // TODO add your handling code here:
+        ProgJournee progJournee = new ProgJournee();
+        progJournee.setVisible(true);
     }//GEN-LAST:event_dashboardMouseClicked
 
 
