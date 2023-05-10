@@ -29,11 +29,7 @@ public class MainMenu extends javax.swing.JFrame {
         Entete = new javax.swing.JLabel();
         parametrer = new javax.swing.JLabel();
         Utilisateur = new javax.swing.JLabel();
-        mailler = new javax.swing.JLabel();
-        donnee = new javax.swing.JLabel();
-        gestion = new javax.swing.JLabel();
         dashboard = new javax.swing.JLabel();
-        imprime = new javax.swing.JLabel();
         quitte = new javax.swing.JLabel();
         info = new javax.swing.JButton();
         abandon = new javax.swing.JButton();
@@ -48,12 +44,12 @@ public class MainMenu extends javax.swing.JFrame {
         Entete.setBackground(new java.awt.Color(255,255,255,120));
         Entete.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Entete.setForeground(new java.awt.Color(255, 0, 0));
-        Entete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/java_64.png"))); // NOI18N
+        Entete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/toocoockk.png"))); // NOI18N
         Entete.setText(" Menu général");
         Entete.setIconTextGap(22);
         Entete.setOpaque(true);
         getContentPane().add(Entete);
-        Entete.setBounds(0, 0, 699, 71);
+        Entete.setBounds(0, 0, 699, 70);
 
         parametrer.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         parametrer.setForeground(new java.awt.Color(204, 204, 204));
@@ -89,70 +85,12 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(Utilisateur);
         Utilisateur.setBounds(240, 110, 100, 100);
 
-        mailler.setBackground(new java.awt.Color(255, 255, 255,100));
-        mailler.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        mailler.setForeground(new java.awt.Color(204, 204, 204));
-        mailler.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mailler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/envelope_80.png"))); // NOI18N
-        mailler.setText("Mail");
-        mailler.setToolTipText("Envoyer un Mail");
-        mailler.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        mailler.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        mailler.setIconTextGap(0);
-        mailler.setMaximumSize(new java.awt.Dimension(80, 100));
-        mailler.setMinimumSize(new java.awt.Dimension(80, 100));
-        mailler.setPreferredSize(new java.awt.Dimension(80, 100));
-        mailler.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        mailler.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                maillerMouseClicked(evt);
-            }
-        });
-        getContentPane().add(mailler);
-        mailler.setBounds(400, 110, 100, 100);
-
-        donnee.setBackground(new java.awt.Color(255, 255, 255,100));
-        donnee.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        donnee.setForeground(new java.awt.Color(204, 204, 204));
-        donnee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        donnee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/database_80.png"))); // NOI18N
-        donnee.setText("Données");
-        donnee.setToolTipText("Gérer les données");
-        donnee.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        donnee.setIconTextGap(0);
-        donnee.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        donnee.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donneeMouseClicked(evt);
-            }
-        });
-        getContentPane().add(donnee);
-        donnee.setBounds(560, 110, 100, 100);
-
-        gestion.setBackground(new java.awt.Color(255, 255, 255,100));
-        gestion.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        gestion.setForeground(new java.awt.Color(204, 204, 204));
-        gestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/file-invoice-dollar_80.png"))); // NOI18N
-        gestion.setText("Gestion");
-        gestion.setToolTipText("Accéder au module de gestion");
-        gestion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        gestion.setIconTextGap(0);
-        gestion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        gestion.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gestionMouseClicked(evt);
-            }
-        });
-        getContentPane().add(gestion);
-        gestion.setBounds(80, 240, 100, 100);
-
         dashboard.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         dashboard.setForeground(new java.awt.Color(204, 204, 204));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/chart-pie_80.png"))); // NOI18N
-        dashboard.setText("Dashboard");
-        dashboard.setToolTipText("Tableau de bord");
+        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/progjour.png"))); // NOI18N
+        dashboard.setText("ProgJournée");
+        dashboard.setToolTipText("Programmation des journées");
         dashboard.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         dashboard.setIconTextGap(0);
         dashboard.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -162,25 +100,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(dashboard);
-        dashboard.setBounds(240, 240, 100, 100);
-
-        imprime.setBackground(new java.awt.Color(255, 255, 255,100));
-        imprime.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        imprime.setForeground(new java.awt.Color(204, 204, 204));
-        imprime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imprime.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/print_80.png"))); // NOI18N
-        imprime.setText("Impression");
-        imprime.setToolTipText("Imprimer des données au format pdf");
-        imprime.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        imprime.setIconTextGap(0);
-        imprime.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        imprime.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                imprimeMouseClicked(evt);
-            }
-        });
-        getContentPane().add(imprime);
-        imprime.setBounds(400, 240, 100, 100);
+        dashboard.setBounds(400, 110, 100, 100);
 
         quitte.setBackground(new java.awt.Color(255, 255, 255,100));
         quitte.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -198,7 +118,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(quitte);
-        quitte.setBounds(560, 240, 100, 100);
+        quitte.setBounds(560, 110, 100, 100);
 
         info.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         info.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/info-circle_20.png"))); // NOI18N
@@ -210,21 +130,21 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(info);
-        info.setBounds(20, 390, 108, 30);
+        info.setBounds(20, 390, 101, 26);
 
         abandon.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         abandon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
         abandon.setText("Abandonner");
         abandon.setToolTipText("Sortir de la fenétre d'envoi");
-        abandon.setOpaque(false);
         abandon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 abandonMouseClicked(evt);
             }
         });
         getContentPane().add(abandon);
-        abandon.setBounds(542, 390, 132, 30);
+        abandon.setBounds(542, 390, 123, 26);
 
+        uiBackground.setBackground(new java.awt.Color(204, 204, 204));
         uiBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/fec_dark.jpg"))); // NOI18N
         uiBackground.setMaximumSize(new java.awt.Dimension(700, 430));
         uiBackground.setMinimumSize(new java.awt.Dimension(700, 430));
@@ -253,24 +173,6 @@ public class MainMenu extends javax.swing.JFrame {
         parametre.setVisible(true);
     }//GEN-LAST:event_parametrerMouseClicked
 
-    private void maillerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maillerMouseClicked
-        // TODO add your handling code here:
-        Mail courriel = new Mail();
-            courriel.setVisible(true);
-    }//GEN-LAST:event_maillerMouseClicked
-
-    private void donneeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donneeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_donneeMouseClicked
-
-    private void gestionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gestionMouseClicked
-
-    private void imprimeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imprimeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imprimeMouseClicked
-
     private void quitteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitteMouseClicked
         // TODO add your handling code here:
         Login login = new Login();
@@ -297,11 +199,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel Utilisateur;
     private javax.swing.JButton abandon;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel donnee;
-    private javax.swing.JLabel gestion;
-    private javax.swing.JLabel imprime;
     private javax.swing.JButton info;
-    private javax.swing.JLabel mailler;
     private javax.swing.JLabel parametrer;
     private javax.swing.JLabel quitte;
     private javax.swing.JLabel uiBackground;
