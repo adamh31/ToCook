@@ -3,24 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package toCook.DAO;
-import java.sql.*;
-import toCook.technic.ConnectDB;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import toCook.model.Diffusion;
-import toCook.model.Programme;
-
+import toCook.technic.ConnectDB;
 
 /**
  *
  * @author g.vern
  */
-public class DiffusionDAO implements DiffusionDAOInterface{
-    
-    public void create(Diffusion diffusion) {
+public class ProgrammeDAO implements ProgrammeDAOInterface{
+    public void create(Programme programme) {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO diffusion (Id_Diffusion, jour, horaire, direct, Id_Programme) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO programme (Id_Emission, Id_Programme, titre, duree, code) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, diffusion.getId());
             ps.setDate(2, (Date) diffusion.getLeJour());
@@ -68,31 +68,4 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
         }
     }
-    
-//    public static Diffusion getLaDiffusion(int id) {;
-//
-//        try {
-//            Connection con = ConnectDB.getConnect();
-//            String sql = "SELECT * FROM diffusion WHERE Id_Diffusion=?";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1, id);
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                Programme prog = new Programme();
-//                Diffusion diffusion = new Diffusion();
-//                diffusion.setId(rs.getInt("Id_Diffusion"));
-//                diffusion.setLeJour(rs.getDate("jour"));
-//                diffusion.setHoraire(rs.getString("horaire"));
-//                diffusion.setDirect(rs.getBoolean("direct"));
-//                diffusion.setLeProgramme(rs.getInt("IdProgramme"));
-//
-//
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            JOptionPane.showMessageDialog(null, "DB : Erreur lors du chargement de l'utilisateur");
-//        }
-//        return ut;
-//    }
 }

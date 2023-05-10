@@ -18,6 +18,14 @@ public class Diffusion {
         this.direct = direct;
         this.leProgramme = leProgramme;
     }
+    
+    public int getId(){
+        return this.id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
 
     // retourne la valeur de l'attribut leJour
     public Date getLeJour() {
@@ -31,9 +39,33 @@ public class Diffusion {
         return false;
     }
     
+    public String getHoraire(){
+        return this.horaire;
+    }
+    
+    public void setHoraire(String horaire){
+        this.horaire = horaire;
+    }
+    
     // retourne la valeur de l'attribut direct pour savoir si un programme est diffusé en direct
     public boolean getDirect() {
         return this.direct;
+    }
+    
+    public Programme getLeProgramme(){
+        return this.leProgramme;
+    }
+    
+    public void setLeProgramme(Programme programme){
+        this.leProgramme = programme;
+    }
+
+    public boolean isDirect() {
+        return direct;
+    }
+
+    public void setDirect(boolean direct) {
+        this.direct = direct;
     }
     
     // retourne les informations d'une diffusion, de son programme et sa catégorie, au format XML
