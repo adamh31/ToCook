@@ -13,4 +13,8 @@ public class CategorieCSA {
     public String getLibelle() {
         return this.libelle;
     }
+    
+    public String getId(){
+        return this.id;
+    }
 }

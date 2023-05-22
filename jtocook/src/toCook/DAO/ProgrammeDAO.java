@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import toCook.model.Diffusion;
+import toCook.model.Programme;
 import toCook.technic.ConnectDB;
 
 /**
@@ -22,11 +23,11 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             Connection con = ConnectDB.getConnect();
             String sql = "INSERT INTO programme (Id_Emission, Id_Programme, titre, duree, code) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, diffusion.getId());
-            ps.setDate(2, (Date) diffusion.getLeJour());
-            ps.setString(3, diffusion.getHoraire());
-            ps.setBoolean(4, diffusion.getDirect());
-            ps.setInt(5, diffusion.getLeProgramme().getId());
+            ps.setInt(1, programme.getId());
+            ps.setInt(2, programme.getEmission().getId());
+            ps.setString(3, programme.getTitre());
+            ps.setInt(4, programme.getDuree());
+            ps.setString(5, programme.getLaCateg().getId());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
