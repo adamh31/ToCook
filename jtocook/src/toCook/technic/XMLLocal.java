@@ -21,7 +21,7 @@ public class XMLLocal {
     public static Document getDocument() throws Exception {
         Document docXML;
         String path;
-        String homePath = System.getProperty("user.home");
+        String homePath = System.getProperty("user.home"); //C:\Users\c.belfio\.jcrud
         // repertoire des paramétres 
         File fichier = new File(Paths.get(homePath,leRepertoire).toString());
         if (!fichier.exists()) {

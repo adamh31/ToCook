@@ -61,13 +61,43 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="0">
-                <Column editable="true" title="date" type="java.lang.Object"/>
-                <Column editable="true" title="programme" type="java.lang.Object"/>
+              <Table columnCount="4" rowCount="3">
+                <Column editable="true" title="Heure" type="java.lang.Object">
+                  <Data value="9:00"/>
+                  <Data value="10:00"/>
+                  <Data value="14:00"/>
+                </Column>
+                <Column editable="true" title="Date" type="java.lang.Object">
+                  <Data value="18/09/2023"/>
+                  <Data value="19/09/2023"/>
+                  <Data value="24/10/2023"/>
+                </Column>
+                <Column editable="true" title="Programme" type="java.lang.String">
+                  <Data value="Gulli"/>
+                  <Data value="Top Chef"/>
+                  <Data value="Le Meilleur P&#xe2;tissier"/>
+                </Column>
+                <Column editable="true" title="null" type="java.lang.Object">
+                  <Data value="modif - supp"/>
+                  <Data value="icon - modif - supp"/>
+                  <Data value="&quot;"/>
+                </Column>
               </Table>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -84,6 +114,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -93,6 +126,9 @@
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
