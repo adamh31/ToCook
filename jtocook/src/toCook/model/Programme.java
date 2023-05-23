@@ -23,6 +23,10 @@ public class Programme {
         this.laCategorieCSA = uneCategorieCSA;
         this.lEmission = uneEmission;
     }
+    
+    public Programme(){
+        
+    }
     // retourne un programme sous la forme d'une chaîne de caractères
     public String toString() {
        return new String();
@@ -30,6 +34,22 @@ public class Programme {
 
     public Emission getEmission() {
         return this.lEmission;
+    }
+
+    public CategorieCSA getLaCategorieCSA() {
+        return laCategorieCSA;
+    }
+
+    public void setLaCategorieCSA(CategorieCSA laCategorieCSA) {
+        this.laCategorieCSA = laCategorieCSA;
+    }
+
+    public Emission getlEmission() {
+        return lEmission;
+    }
+
+    public void setlEmission(Emission lEmission) {
+        this.lEmission = lEmission;
     }
 
     public int getId() {
@@ -46,6 +66,18 @@ public class Programme {
 
     public CategorieCSA getLaCateg() {
         return this.laCategorieCSA;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
     }
 
 }

@@ -18,6 +18,8 @@ public class ProgJournee extends javax.swing.JFrame {
         for(int i = 1; i <= 52; i++){
             this.jComboBox1.addItem("semaine " + i);
         }
+        
+        
     }
 
     /**

@@ -10,13 +10,27 @@ public class Diffusion {
     private String horaire;
     private boolean direct;
     private Programme leProgramme;
+    private Emission emission;
 
-    public Diffusion(Programme leProgramme, int id, Date leJour, String horaire, boolean direct) {
+    public Diffusion(Programme leProgramme, int id, Date leJour, String horaire, boolean direct, Emission emission) {
         this.id = id;
         this.leJour = leJour;
         this.horaire = horaire;
         this.direct = direct;
         this.leProgramme = leProgramme;
+        this.emission = emission;
+    }
+
+    public Emission getEmission() {
+        return emission;
+    }
+
+    public void setEmission(Emission emission) {
+        this.emission = emission;
+    }
+    
+    public Diffusion(){
+        
     }
     
     public int getId(){

@@ -7,10 +7,12 @@ package toCook.DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import toCook.model.Diffusion;
 import toCook.model.Programme;
 import toCook.technic.ConnectDB;
+import toCook.DAO.EmissionDAO;
 
 /**
  *
@@ -27,7 +29,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             ps.setInt(2, programme.getEmission().getId());
             ps.setString(3, programme.getTitre());
             ps.setInt(4, programme.getDuree());
-            ps.setString(5, programme.getLaCateg().getId());
+            ps.setString(5, programme.getLaCateg().getCode());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
@@ -68,5 +70,33 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
         }
+    }
+    
+    public static Programme getLeProgramme(int id, int id_emission) {;;
+
+        Programme prog = new Programme();
+    
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM programme WHERE Id_Programme=? AND Id_Emission=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.setInt(2, id_emission);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+               prog.setId(rs.getInt("Id_Programme"));
+               prog.setlEmission(EmissionDAO.getLEmission(rs.getInt("Id_Emission")));
+               prog.setTitre(rs.getString("titre"));
+               prog.setDuree(rs.getInt("duree"));
+               prog.setLaCategorieCSA(CategorieCSADAO.getLaCategorieCSA(rs.getString("code")));
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return prog;
     }
 }

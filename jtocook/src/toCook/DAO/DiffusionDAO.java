@@ -69,30 +69,35 @@ public class DiffusionDAO implements DiffusionDAOInterface{
         }
     }
     
-//    public static Diffusion getLaDiffusion(int id) {;
-//
-//        try {
-//            Connection con = ConnectDB.getConnect();
-//            String sql = "SELECT * FROM diffusion WHERE Id_Diffusion=?";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setInt(1, id);
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                Programme prog = new Programme();
-//                Diffusion diffusion = new Diffusion();
-//                diffusion.setId(rs.getInt("Id_Diffusion"));
-//                diffusion.setLeJour(rs.getDate("jour"));
-//                diffusion.setHoraire(rs.getString("horaire"));
-//                diffusion.setDirect(rs.getBoolean("direct"));
-//                diffusion.setLeProgramme(rs.getInt("IdProgramme"));
-//
-//
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            JOptionPane.showMessageDialog(null, "DB : Erreur lors du chargement de l'utilisateur");
-//        }
-//        return ut;
-//    }
+    public static Diffusion getLaDiffusion(int id) {
+        
+        Diffusion diffusion = new Diffusion();
+
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM diffusion WHERE Id_Diffusion=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Programme prog = new Programme(
+                        
+                );
+
+                diffusion.setLeProgramme(prog);
+                diffusion.setId(rs.getInt("Id_Diffusion"));
+                diffusion.setLeJour(rs.getDate("jour"));
+                diffusion.setHoraire(rs.getString("horaire"));
+                diffusion.setDirect(rs.getBoolean("direct"));
+
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return diffusion;
+    }
 }
