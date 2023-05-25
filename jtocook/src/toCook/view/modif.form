@@ -74,7 +74,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="categoriecsa_modif2" min="-2" pref="90" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="direct_entree" min="-2" max="-2" attributes="0"/>
+                              <Component id="entree_direct" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -84,7 +84,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="direct_entree1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="entree_culinaire" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
@@ -148,12 +148,12 @@
               </Group>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="categoriecsa_modif2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="direct_entree" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="entree_direct" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="categoriecsa_modif3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="direct_entree1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="entree_culinaire" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="67" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -202,25 +202,16 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_dureeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="entree_titre">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_titreActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="entree_origine">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_origineActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="annuler">
       <Properties>
@@ -231,6 +222,7 @@
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="annulerMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="annulerActionPerformed"/>
       </Events>
     </Component>
@@ -246,9 +238,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_intervenantActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="genre_modif">
       <Properties>
@@ -262,9 +251,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_genreActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="categoriecsa_modif">
       <Properties>
@@ -278,9 +264,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_categoriecsaActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="paneau_haut">
       <Properties>
@@ -336,9 +319,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entree_date">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_dateActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="hdebut_modif">
           <Properties>
@@ -349,9 +329,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entree_hdebut">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_hdebutActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="hfin_modif">
           <Properties>
@@ -377,9 +354,6 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_categoriecsa1ActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="categoriecsa_modif2">
       <Properties>
@@ -389,18 +363,15 @@
         <Property name="text" type="java.lang.String" value="En direct ?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="direct_entree">
+    <Component class="javax.swing.JComboBox" name="entree_direct">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="Oui"/>
-            <StringItem index="1" value="Non"/>
+            <StringItem index="0" value="Non"/>
+            <StringItem index="1" value="Oui"/>
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="direct_entreeActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -413,18 +384,15 @@
         <Property name="text" type="java.lang.String" value="Programme culinaire"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="direct_entree1">
+    <Component class="javax.swing.JComboBox" name="entree_culinaire">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="2">
-            <StringItem index="0" value="Oui"/>
-            <StringItem index="1" value="Non"/>
+            <StringItem index="0" value="Non"/>
+            <StringItem index="1" value="Oui"/>
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="direct_entree1ActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -438,6 +406,7 @@
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="enregistrer1MouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enregistrer1ActionPerformed"/>
       </Events>
     </Component>

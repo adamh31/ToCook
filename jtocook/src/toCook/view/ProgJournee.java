@@ -119,11 +119,11 @@ public class ProgJournee extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         ArrayList<Diffusion> diffusions = DiffusionDAO.getLesDiffusionsSemaine(this.jComboBox1.getSelectedIndex() + 1);
-        System.out.println(diffusions.size());
         
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
         for(Diffusion diffusion : diffusions){
+            System.out.println(diffusion.getLeProgramme().getTitre());
             model.addRow(new Object[]{diffusion.getId(), diffusion.getHoraire(), diffusion.getLeJour().toString(), diffusion.getLeProgramme().getlEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre()});
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed

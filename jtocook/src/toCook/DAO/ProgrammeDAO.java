@@ -19,7 +19,7 @@ import toCook.DAO.EmissionDAO;
  * @author g.vern
  */
 public class ProgrammeDAO implements ProgrammeDAOInterface{
-    public void create(Programme programme) {
+    public static void create(Programme programme) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -38,26 +38,26 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
         }
     }
     
-    public void update(Diffusion diffusion) {
+    public static void update(Programme programme) {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE Diffusion SET jour=?, horaire=?, direct=?, Id_Emission=null, Id_Programme=? WHERE Id_Diffusion=?";
+            String sql = "UPDATE Programme SET titre=?, duree=?, code=? WHERE Id_Emission=? AND Id_Programme=?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setDate(1, (Date) diffusion.getLeJour());
-            ps.setString(2, diffusion.getHoraire());
-            ps.setBoolean(3, diffusion.getDirect());
-            ps.setInt(4, diffusion.getLeProgramme().getId());
-            ps.setInt(5, diffusion.getId());
+            ps.setString(1, programme.getTitre());
+            ps.setInt(2, programme.getDuree());
+            ps.setString(3, programme.getLaCategorieCSA().getCode());
+            ps.setInt(4, programme.getEmission().getId());
+            ps.setInt(5, programme.getId());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     
-    public void delete(int id) {
+    public static void delete(int id) {
 
         try {
             Connection con = ConnectDB.getConnect();

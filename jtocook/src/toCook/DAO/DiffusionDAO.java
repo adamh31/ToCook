@@ -18,7 +18,7 @@ import toCook.model.Programme;
  */
 public class DiffusionDAO implements DiffusionDAOInterface{
     
-    public void create(Diffusion diffusion) {
+    public static void create(Diffusion diffusion) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -37,11 +37,11 @@ public class DiffusionDAO implements DiffusionDAOInterface{
         }
     }
     
-    public void update(Diffusion diffusion) {
+    public static void update(Diffusion diffusion) {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE Diffusion SET jour=?, horaire=?, direct=?, Id_Emission=null, Id_Programme=? WHERE Id_Diffusion=?";
+            String sql = "UPDATE Diffusion SET jour=?, horaire=?, direct=?, Id_Programme=? WHERE Id_Diffusion=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDate(1, (Date) diffusion.getLeJour());
             ps.setString(2, diffusion.getHoraire());
@@ -52,11 +52,11 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     
-    public void delete(int id) {
+    public static void delete(int id) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -118,7 +118,7 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             
             while(rs.next()){
                 Programme prog = ProgrammeDAO.getLeProgramme(rs.getInt("Id_Programme"), rs.getInt("Id_Emission"));
-                Emission emission = EmissionDAO.getLEmission(rs.getInt("Id_Emission"));
+                
                 
                 Diffusion diffusion = new Diffusion();
                 diffusion.setDirect(rs.getBoolean("direct"));

@@ -19,7 +19,7 @@ import toCook.technic.ConnectDB;
  * @author Administrator
  */
 public class EmissionDAO {
-    public void create(Emission emission) {
+    public static void create(Emission emission) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -30,8 +30,8 @@ public class EmissionDAO {
             ps.setString(3, emission.getTitreOriginal());
             ps.setInt(4, emission.getAnneeProduction());
             ps.setInt(5, emission.getNumSaison());
-            ps.setString(6, emission.getGenre());
-            ps.setString(7, emission.getOrigine());
+            ps.setString(6, emission.getOrigine());
+            ps.setString(7, emission.getGenre());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class EmissionDAO {
         }
     }
     
-    public void update(Emission emission) {
+    public static void update(Emission emission) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -50,8 +50,8 @@ public class EmissionDAO {
             ps.setString(2, emission.getTitreOriginal());
             ps.setInt(3, emission.getAnneeProduction());
             ps.setInt(4, emission.getNumSaison());
-            ps.setString(5, emission.getGenre());
-            ps.setString(6, emission.getOrigine());
+            ps.setString(5, emission.getOrigine());
+            ps.setString(6, emission.getGenre());
             ps.setInt(7, emission.getId());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
@@ -61,7 +61,7 @@ public class EmissionDAO {
         }
     }
     
-    public void delete(int id) {
+    public static void delete(int id) {
 
         try {
             Connection con = ConnectDB.getConnect();
@@ -92,8 +92,8 @@ public class EmissionDAO {
                 emission.setTitreOriginal(rs.getString("titre_original"));
                 emission.setAnneeProduction(rs.getInt("annee_production"));
                 emission.setNumSaison(rs.getInt("num_saison"));
-                emission.setGenre(rs.getString("code"));
-                emission.setOrigine(rs.getString("code_1"));
+                emission.setGenre(rs.getString("code_1"));
+                emission.setOrigine(rs.getString("code"));
 
             }
 

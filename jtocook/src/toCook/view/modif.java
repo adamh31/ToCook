@@ -5,9 +5,12 @@
 package toCook.view;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JFrame;
 import toCook.DAO.DiffusionDAO;
+import toCook.DAO.EmissionDAO;
+import toCook.DAO.ProgrammeDAO;
 import toCook.model.Diffusion;
 
 /**
@@ -17,29 +20,29 @@ import toCook.model.Diffusion;
 public class modif extends javax.swing.JFrame {
 
     
-    protected int id;
+    protected Diffusion diffusion;
     /**
      * Creates new form modif
      */
     public modif(int id) {
-        this.id = id;
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         Color col=new Color(255,199,199);
         getContentPane().setBackground(col);
         
-        Diffusion diffusion = DiffusionDAO.getLaDiffusion(id);
+        this.diffusion = DiffusionDAO.getLaDiffusion(id);
        
         this.entree_date.setText(diffusion.getLeJour().toString());
         this.entree_hdebut.setText(diffusion.getHoraire());
         this.entree_categoriecsa.setText(diffusion.getLeProgramme().getLaCategorieCSA().getCode());
         this.entree_duree.setText(Integer.toString(diffusion.getLeProgramme().getDuree()));
-        this.entree_titre.setText(diffusion.getLeProgramme().getEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre());
+        this.entree_titre.setText(diffusion.getLeProgramme().getEmission().getTitre());
         this.entree_origine.setText(diffusion.getLeProgramme().getEmission().getOrigine());
         this.entree_genre.setText(diffusion.getLeProgramme().getEmission().getGenre());
-        
         this.entree_hfin.setText((LocalTime.parse(diffusion.getHoraire()).plusMinutes(diffusion.getLeProgramme().getDuree())).toString());
+        this.entree_direct.setSelectedIndex((diffusion.getDirect())? 1 : 0);
+        
       
     }
 
@@ -76,9 +79,9 @@ public class modif extends javax.swing.JFrame {
         categoriecsa_modif1 = new javax.swing.JLabel();
         entree_categoriecsa1 = new javax.swing.JTextField();
         categoriecsa_modif2 = new javax.swing.JLabel();
-        direct_entree = new javax.swing.JComboBox<>();
+        entree_direct = new javax.swing.JComboBox<>();
         categoriecsa_modif3 = new javax.swing.JLabel();
-        direct_entree1 = new javax.swing.JComboBox<>();
+        entree_culinaire = new javax.swing.JComboBox<>();
         enregistrer1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,29 +100,19 @@ public class modif extends javax.swing.JFrame {
         top.setText("Modification du programme");
 
         entree_duree.setToolTipText("");
-        entree_duree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_dureeActionPerformed(evt);
-            }
-        });
 
         entree_titre.setToolTipText("");
-        entree_titre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_titreActionPerformed(evt);
-            }
-        });
 
         entree_origine.setToolTipText("");
-        entree_origine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_origineActionPerformed(evt);
-            }
-        });
 
         annuler.setFont(new java.awt.Font("ASimpleLife", 1, 12)); // NOI18N
         annuler.setText("Annuler");
         annuler.setBorderPainted(false);
+        annuler.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                annulerMouseClicked(evt);
+            }
+        });
         annuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 annulerActionPerformed(evt);
@@ -130,51 +123,24 @@ public class modif extends javax.swing.JFrame {
         intervenant_modif.setText("Intervenant :");
 
         entree_intervenant.setToolTipText("");
-        entree_intervenant.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_intervenantActionPerformed(evt);
-            }
-        });
 
         genre_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         genre_modif.setText("Genre :");
 
         entree_genre.setToolTipText("");
-        entree_genre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_genreActionPerformed(evt);
-            }
-        });
 
         categoriecsa_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         categoriecsa_modif.setText("Categorie CSA");
 
         entree_categoriecsa.setToolTipText("");
-        entree_categoriecsa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_categoriecsaActionPerformed(evt);
-            }
-        });
 
         paneau_haut.setBackground(new java.awt.Color(255, 148, 148));
 
         date_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         date_modif.setText("Date");
 
-        entree_date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_dateActionPerformed(evt);
-            }
-        });
-
         hdebut_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         hdebut_modif.setText("Heure debut");
-
-        entree_hdebut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_hdebutActionPerformed(evt);
-            }
-        });
 
         hfin_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         hfin_modif.setText("Heure fin");
@@ -216,35 +182,25 @@ public class modif extends javax.swing.JFrame {
         categoriecsa_modif1.setText("Lien Image");
 
         entree_categoriecsa1.setToolTipText("");
-        entree_categoriecsa1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_categoriecsa1ActionPerformed(evt);
-            }
-        });
 
         categoriecsa_modif2.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         categoriecsa_modif2.setText("En direct ?");
 
-        direct_entree.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oui", "Non" }));
-        direct_entree.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                direct_entreeActionPerformed(evt);
-            }
-        });
+        entree_direct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui" }));
 
         categoriecsa_modif3.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         categoriecsa_modif3.setText("Programme culinaire");
 
-        direct_entree1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oui", "Non" }));
-        direct_entree1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                direct_entree1ActionPerformed(evt);
-            }
-        });
+        entree_culinaire.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non", "Oui" }));
 
         enregistrer1.setFont(new java.awt.Font("ASimpleLife", 1, 12)); // NOI18N
         enregistrer1.setText("Enregistrer");
         enregistrer1.setBorderPainted(false);
+        enregistrer1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enregistrer1MouseClicked(evt);
+            }
+        });
         enregistrer1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enregistrer1ActionPerformed(evt);
@@ -295,7 +251,7 @@ public class modif extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(entree_direct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(annuler)
@@ -303,7 +259,7 @@ public class modif extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(entree_culinaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(enregistrer1)
@@ -349,11 +305,11 @@ public class modif extends javax.swing.JFrame {
                         .addComponent(entree_categoriecsa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entree_direct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entree_culinaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enregistrer1)
@@ -364,57 +320,32 @@ public class modif extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void entree_dureeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_dureeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_dureeActionPerformed
-
-    private void entree_titreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_titreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_titreActionPerformed
-
-    private void entree_origineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_origineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_origineActionPerformed
-
     private void annulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_annulerActionPerformed
 
-    private void entree_intervenantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_intervenantActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_intervenantActionPerformed
-
-    private void entree_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_dateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_dateActionPerformed
-
-    private void entree_hdebutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_hdebutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_hdebutActionPerformed
-
-    private void entree_genreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_genreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_genreActionPerformed
-
-    private void entree_categoriecsaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_categoriecsaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_categoriecsaActionPerformed
-
-    private void entree_categoriecsa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_categoriecsa1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_entree_categoriecsa1ActionPerformed
-
-    private void direct_entreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direct_entreeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_direct_entreeActionPerformed
-
-    private void direct_entree1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direct_entree1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_direct_entree1ActionPerformed
-
     private void enregistrer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrer1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enregistrer1ActionPerformed
+
+    private void annulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_annulerMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_annulerMouseClicked
+
+    private void enregistrer1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enregistrer1MouseClicked
+        this.diffusion.setLeJour(java.sql.Date.valueOf(LocalDate.parse(this.entree_date.getText())));
+        this.diffusion.setDirect(this.entree_direct.getSelectedIndex() == 1);
+        this.diffusion.setHoraire(this.entree_hdebut.getText());
+        this.diffusion.getLeProgramme().setDuree(Integer.parseInt(this.entree_duree.getText()));
+        this.diffusion.getLeProgramme().getLaCategorieCSA().setCode(this.entree_categoriecsa.getText());
+        this.diffusion.getLeProgramme().getlEmission().setOrigine(this.entree_origine.getText());
+        this.diffusion.getLeProgramme().getlEmission().setTitre(this.entree_titre.getText());
+        this.diffusion.getLeProgramme().getlEmission().setGenre(this.entree_genre.getText());
+        
+        DiffusionDAO.update(this.diffusion);
+        ProgrammeDAO.update(this.diffusion.getLeProgramme());
+        EmissionDAO.update(this.diffusion.getLeProgramme().getlEmission());
+    }//GEN-LAST:event_enregistrer1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -424,13 +355,13 @@ public class modif extends javax.swing.JFrame {
     private javax.swing.JLabel categoriecsa_modif2;
     private javax.swing.JLabel categoriecsa_modif3;
     private javax.swing.JLabel date_modif;
-    private javax.swing.JComboBox<String> direct_entree;
-    private javax.swing.JComboBox<String> direct_entree1;
     private javax.swing.JLabel duree_modif;
     private javax.swing.JButton enregistrer1;
     private javax.swing.JTextField entree_categoriecsa;
     private javax.swing.JTextField entree_categoriecsa1;
+    private javax.swing.JComboBox<String> entree_culinaire;
     private javax.swing.JTextField entree_date;
+    private javax.swing.JComboBox<String> entree_direct;
     private javax.swing.JTextField entree_duree;
     private javax.swing.JTextField entree_genre;
     private javax.swing.JTextField entree_hdebut;
