@@ -82,9 +82,7 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Programme prog = new Programme(
-                        
-                );
+                Programme prog = ProgrammeDAO.getLeProgramme(rs.getInt("Id_Programme"), rs.getInt("Id_Emission"));
 
                 diffusion.setLeProgramme(prog);
                 diffusion.setId(rs.getInt("Id_Diffusion"));
@@ -107,27 +105,27 @@ public class DiffusionDAO implements DiffusionDAOInterface{
         
         int jourMin = semaine * 7;
         int jourMax = semaine * 7 + 7;
-        
         ArrayList<Diffusion> diffusions = new ArrayList<Diffusion>();
         
         try{
             
             Connection con = ConnectDB.getConnect();
-            String sql = "SELECT * FROM Diffusion WHERE DAYOFYEAR(jour) >= ? AND DAYOFYEAR(jour) < ?";
+            String sql = "SELECT * FROM Diffusion WHERE DAYOFYEAR(jour) >= ? AND DAYOFYEAR(jour) <= ? ORDER BY jour DESC, horaire DESC";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, jourMin);
             ps.setInt(2, jourMax);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                Programme prog = ProgrammeDAO.getLeProgramme(rs.getInt("Id_programme"), rs.getInt("Id_Emission"));
+            
+            while(rs.next()){
+                Programme prog = ProgrammeDAO.getLeProgramme(rs.getInt("Id_Programme"), rs.getInt("Id_Emission"));
                 Emission emission = EmissionDAO.getLEmission(rs.getInt("Id_Emission"));
                 
                 Diffusion diffusion = new Diffusion();
                 diffusion.setDirect(rs.getBoolean("direct"));
-                diffusion.setEmission(emission);
                 diffusion.setLeProgramme(prog);
                 diffusion.setLeJour(rs.getDate("jour"));
                 diffusion.setHoraire(rs.getString("horaire"));
+                diffusion.setId(rs.getInt("Id_Diffusion"));
                 
                 diffusions.add(diffusion);
             }

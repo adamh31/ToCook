@@ -70,33 +70,27 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="3">
-                <Column editable="true" title="Heure" type="java.lang.Object">
+              <Table columnCount="5" rowCount="3">
+                <Column editable="false" title="Id" type="java.lang.Object"/>
+                <Column editable="false" title="Heure" type="java.lang.Object">
                   <Data value="9:00"/>
                   <Data value="10:00"/>
                   <Data value="14:00"/>
                 </Column>
-                <Column editable="true" title="Date" type="java.lang.Object">
-                  <Data value="18/09/2023"/>
-                  <Data value="19/09/2023"/>
-                  <Data value="24/10/2023"/>
-                </Column>
-                <Column editable="true" title="Programme" type="java.lang.String">
-                  <Data value="Gulli"/>
-                  <Data value="Top Chef"/>
-                  <Data value="Le Meilleur P&#xe2;tissier"/>
-                </Column>
-                <Column editable="true" title="null" type="java.lang.Object">
-                  <Data value="modif - supp"/>
-                  <Data value="icon - modif - supp"/>
-                  <Data value="&quot;"/>
-                </Column>
+                <Column editable="false" title="Date" type="java.lang.Object"/>
+                <Column editable="true" title="Programme" type="java.lang.Object"/>
+                <Column editable="false" title="Actions" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>

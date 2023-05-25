@@ -29,7 +29,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             ps.setInt(2, programme.getEmission().getId());
             ps.setString(3, programme.getTitre());
             ps.setInt(4, programme.getDuree());
-            ps.setString(5, programme.getLaCateg().getCode());
+            ps.setString(5, programme.getLaCategorieCSA().getCode());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {

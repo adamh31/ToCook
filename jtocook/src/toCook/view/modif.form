@@ -47,9 +47,9 @@
                               <Component id="entree_duree" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="code_modif" min="-2" pref="67" max="-2" attributes="0"/>
+                              <Component id="origine_modif" min="-2" pref="67" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="entree_code" min="-2" pref="144" max="-2" attributes="0"/>
+                              <Component id="entree_origine" min="-2" pref="144" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="intervenant_modif" min="-2" pref="105" max="-2" attributes="0"/>
@@ -121,8 +121,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="code_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="entree_code" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="origine_modif" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="entree_origine" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -182,12 +182,12 @@
         <Property name="text" type="java.lang.String" value="Duree :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="code_modif">
+    <Component class="javax.swing.JLabel" name="origine_modif">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="ASimpleLife" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Code :"/>
+        <Property name="text" type="java.lang.String" value="Origine :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="top">
@@ -214,12 +214,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_titreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="entree_code">
+    <Component class="javax.swing.JTextField" name="entree_origine">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_codeActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entree_origineActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="annuler">

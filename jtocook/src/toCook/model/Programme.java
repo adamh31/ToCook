@@ -64,10 +64,6 @@ public class Programme {
         return this.duree;
     }
 
-    public CategorieCSA getLaCateg() {
-        return this.laCategorieCSA;
-    }
-
     public void setId(int id) {
         this.id = id;
     }

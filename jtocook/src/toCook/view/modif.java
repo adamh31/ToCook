@@ -5,7 +5,10 @@
 package toCook.view;
 
 import java.awt.Color;
+import java.time.LocalTime;
 import javax.swing.JFrame;
+import toCook.DAO.DiffusionDAO;
+import toCook.model.Diffusion;
 
 /**
  *
@@ -13,15 +16,30 @@ import javax.swing.JFrame;
  */
 public class modif extends javax.swing.JFrame {
 
+    
+    protected int id;
     /**
      * Creates new form modif
      */
-    public modif() {
+    public modif(int id) {
+        this.id = id;
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
-       Color col=new Color(255,199,199);
-       getContentPane().setBackground(col);
+        Color col=new Color(255,199,199);
+        getContentPane().setBackground(col);
+        
+        Diffusion diffusion = DiffusionDAO.getLaDiffusion(id);
+       
+        this.entree_date.setText(diffusion.getLeJour().toString());
+        this.entree_hdebut.setText(diffusion.getHoraire());
+        this.entree_categoriecsa.setText(diffusion.getLeProgramme().getLaCategorieCSA().getCode());
+        this.entree_duree.setText(Integer.toString(diffusion.getLeProgramme().getDuree()));
+        this.entree_titre.setText(diffusion.getLeProgramme().getEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre());
+        this.entree_origine.setText(diffusion.getLeProgramme().getEmission().getOrigine());
+        this.entree_genre.setText(diffusion.getLeProgramme().getEmission().getGenre());
+        
+        this.entree_hfin.setText((LocalTime.parse(diffusion.getHoraire()).plusMinutes(diffusion.getLeProgramme().getDuree())).toString());
       
     }
 
@@ -36,11 +54,11 @@ public class modif extends javax.swing.JFrame {
 
         titre_modif = new javax.swing.JLabel();
         duree_modif = new javax.swing.JLabel();
-        code_modif = new javax.swing.JLabel();
+        origine_modif = new javax.swing.JLabel();
         top = new javax.swing.JLabel();
         entree_duree = new javax.swing.JTextField();
         entree_titre = new javax.swing.JTextField();
-        entree_code = new javax.swing.JTextField();
+        entree_origine = new javax.swing.JTextField();
         annuler = new javax.swing.JButton();
         intervenant_modif = new javax.swing.JLabel();
         entree_intervenant = new javax.swing.JTextField();
@@ -72,8 +90,8 @@ public class modif extends javax.swing.JFrame {
         duree_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         duree_modif.setText("Duree :");
 
-        code_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
-        code_modif.setText("Code :");
+        origine_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
+        origine_modif.setText("Origine :");
 
         top.setFont(new java.awt.Font("ASimpleLife", 1, 18)); // NOI18N
         top.setText("Modification du programme");
@@ -92,10 +110,10 @@ public class modif extends javax.swing.JFrame {
             }
         });
 
-        entree_code.setToolTipText("");
-        entree_code.addActionListener(new java.awt.event.ActionListener() {
+        entree_origine.setToolTipText("");
+        entree_origine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entree_codeActionPerformed(evt);
+                entree_origineActionPerformed(evt);
             }
         });
 
@@ -255,9 +273,9 @@ public class modif extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(code_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(origine_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(entree_code, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(entree_origine, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(intervenant_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -311,8 +329,8 @@ public class modif extends javax.swing.JFrame {
                             .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(code_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(entree_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(origine_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(entree_origine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(intervenant_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,9 +372,9 @@ public class modif extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_entree_titreActionPerformed
 
-    private void entree_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_codeActionPerformed
+    private void entree_origineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_origineActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_entree_codeActionPerformed
+    }//GEN-LAST:event_entree_origineActionPerformed
 
     private void annulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerActionPerformed
         // TODO add your handling code here:
@@ -398,40 +416,6 @@ public class modif extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_enregistrer1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(modif.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(modif.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(modif.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(modif.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new modif().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton annuler;
@@ -439,7 +423,6 @@ public class modif extends javax.swing.JFrame {
     private javax.swing.JLabel categoriecsa_modif1;
     private javax.swing.JLabel categoriecsa_modif2;
     private javax.swing.JLabel categoriecsa_modif3;
-    private javax.swing.JLabel code_modif;
     private javax.swing.JLabel date_modif;
     private javax.swing.JComboBox<String> direct_entree;
     private javax.swing.JComboBox<String> direct_entree1;
@@ -447,18 +430,19 @@ public class modif extends javax.swing.JFrame {
     private javax.swing.JButton enregistrer1;
     private javax.swing.JTextField entree_categoriecsa;
     private javax.swing.JTextField entree_categoriecsa1;
-    private javax.swing.JTextField entree_code;
     private javax.swing.JTextField entree_date;
     private javax.swing.JTextField entree_duree;
     private javax.swing.JTextField entree_genre;
     private javax.swing.JTextField entree_hdebut;
     private javax.swing.JTextField entree_hfin;
     private javax.swing.JTextField entree_intervenant;
+    private javax.swing.JTextField entree_origine;
     private javax.swing.JTextField entree_titre;
     private javax.swing.JLabel genre_modif;
     private javax.swing.JLabel hdebut_modif;
     private javax.swing.JLabel hfin_modif;
     private javax.swing.JLabel intervenant_modif;
+    private javax.swing.JLabel origine_modif;
     private javax.swing.JPanel paneau_haut;
     private javax.swing.JLabel titre_modif;
     private javax.swing.JLabel top;
