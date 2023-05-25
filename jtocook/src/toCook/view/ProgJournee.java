@@ -123,7 +123,6 @@ public class ProgJournee extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
         for(Diffusion diffusion : diffusions){
-            System.out.println(diffusion.getLeProgramme().getTitre());
             model.addRow(new Object[]{diffusion.getId(), diffusion.getHoraire(), diffusion.getLeJour().toString(), diffusion.getLeProgramme().getlEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre()});
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed

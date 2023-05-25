@@ -33,7 +33,7 @@ public class MainMenu extends javax.swing.JFrame {
         quitte = new javax.swing.JLabel();
         info = new javax.swing.JButton();
         abandon = new javax.swing.JButton();
-        uiBackground = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("view.MainMenu");
@@ -52,7 +52,7 @@ public class MainMenu extends javax.swing.JFrame {
         Entete.setBounds(0, 0, 699, 70);
 
         parametrer.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        parametrer.setForeground(new java.awt.Color(204, 204, 204));
+        parametrer.setForeground(new java.awt.Color(51, 51, 51));
         parametrer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         parametrer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/gear_80.png"))); // NOI18N
         parametrer.setText("Paramétre");
@@ -69,7 +69,7 @@ public class MainMenu extends javax.swing.JFrame {
         parametrer.setBounds(80, 110, 100, 100);
 
         Utilisateur.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        Utilisateur.setForeground(new java.awt.Color(204, 204, 204));
+        Utilisateur.setForeground(new java.awt.Color(51, 51, 51));
         Utilisateur.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Utilisateur.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/user-secret_80.png"))); // NOI18N
         Utilisateur.setText("Utilisateur");
@@ -86,7 +86,7 @@ public class MainMenu extends javax.swing.JFrame {
         Utilisateur.setBounds(240, 110, 100, 100);
 
         dashboard.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        dashboard.setForeground(new java.awt.Color(204, 204, 204));
+        dashboard.setForeground(new java.awt.Color(51, 51, 51));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/progjour.png"))); // NOI18N
         dashboard.setText("ProgJournée");
@@ -104,7 +104,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         quitte.setBackground(new java.awt.Color(255, 255, 255,100));
         quitte.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        quitte.setForeground(new java.awt.Color(204, 204, 204));
+        quitte.setForeground(new java.awt.Color(51, 51, 51));
         quitte.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         quitte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/power-off_80.png"))); // NOI18N
         quitte.setText("Quitter");
@@ -130,7 +130,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(info);
-        info.setBounds(20, 390, 101, 26);
+        info.setBounds(20, 390, 101, 27);
 
         abandon.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         abandon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
@@ -142,15 +142,12 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(abandon);
-        abandon.setBounds(542, 390, 123, 26);
+        abandon.setBounds(542, 390, 123, 27);
 
-        uiBackground.setBackground(new java.awt.Color(204, 204, 204));
-        uiBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/fec_dark.jpg"))); // NOI18N
-        uiBackground.setMaximumSize(new java.awt.Dimension(700, 430));
-        uiBackground.setMinimumSize(new java.awt.Dimension(700, 430));
-        uiBackground.setPreferredSize(new java.awt.Dimension(700, 430));
-        getContentPane().add(uiBackground);
-        uiBackground.setBounds(0, 0, 700, 430);
+        jPanel1.setBackground(new java.awt.Color(255, 199, 199));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 70, 700, 360);
 
         pack();
         setLocationRelativeTo(null);
@@ -200,8 +197,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton abandon;
     private javax.swing.JLabel dashboard;
     private javax.swing.JButton info;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel parametrer;
     private javax.swing.JLabel quitte;
-    private javax.swing.JLabel uiBackground;
     // End of variables declaration//GEN-END:variables
 }

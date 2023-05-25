@@ -7,6 +7,7 @@ package toCook.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import toCook.model.CategorieCSA;
 import toCook.model.Emission;
@@ -86,5 +87,24 @@ public class CategorieCSADAO {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return categorieCSA;
+    }
+    
+    public static ArrayList<CategorieCSA> getLesCategorieCSA(){
+        ArrayList<CategorieCSA> categorieCSAs = new ArrayList<CategorieCSA>();
+        try{
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Categorie_CSA";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                CategorieCSA categorieCSA = new CategorieCSA();
+                categorieCSA.setCode(rs.getString("code"));
+                categorieCSA.setLibelle(rs.getString("libelle"));
+                categorieCSAs.add(categorieCSA);
+            }
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        return categorieCSAs;
     }
 }
