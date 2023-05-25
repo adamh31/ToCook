@@ -23,7 +23,7 @@ public class EmissionDAO {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO emission (Id_Emission, titre, titre_original, annee_production, num_saison, code, code_1) VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Emission (Id_Emission, titre, titre_original, annee_production, num_saison, code, code_1) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, emission.getId());
             ps.setString(2, emission.getTitre());
@@ -44,7 +44,7 @@ public class EmissionDAO {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE emission SET titre=?, titre_original=?, annee_production=?, num_saison=?, code=?, code_1=? WHERE Id_Emission=?";
+            String sql = "UPDATE Emission SET titre=?, titre_original=?, annee_production=?, num_saison=?, code=?, code_1=? WHERE Id_Emission=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, emission.getTitre());
             ps.setString(2, emission.getTitreOriginal());
@@ -65,7 +65,7 @@ public class EmissionDAO {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "DELETE FROM emission WHERE Id_Emission=?";
+            String sql = "DELETE FROM Emission WHERE Id_Emission=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
@@ -82,7 +82,7 @@ public class EmissionDAO {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "SELECT * FROM diffusion WHERE Id_Diffusion=?";
+            String sql = "SELECT * FROM Emission WHERE Id_Emission=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -103,4 +103,5 @@ public class EmissionDAO {
         }
         return emission;
     }
+    
 }

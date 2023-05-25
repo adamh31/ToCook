@@ -49,7 +49,7 @@ public class Diffusion {
     // permet de modifier la date de diffusion en s’assurant que la nouvelle date soit postérieure
     // à la date du jour. Retourne « true » si la modification a été effectuée, « false » sinon.
     public boolean setLeJour(Date dateDiffusion) {
-        // À COMPLÉTER . . . 
+        this.leJour = dateDiffusion;
         return false;
     }
     

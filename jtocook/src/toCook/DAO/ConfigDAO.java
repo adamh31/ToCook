@@ -47,7 +47,6 @@ public class ConfigDAO implements ConfigDAOInterface {
             c.setMailPass(crypt.decode(passSMTP, "PRIV"));
             c.setSgbdPass(crypt.decode(passDB, "PRIV"));
         } catch (Exception ex) {
-            System.out.println(ex);
         }
         return c;
     }
@@ -100,7 +99,7 @@ public class ConfigDAO implements ConfigDAOInterface {
             XMLLocal.saveDocument(docXML);
             JOptionPane.showMessageDialog(null, "Config : Configuration sauvegardée");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Config : Erreur sauvegarde config.xml");
+            JOptionPane.showMessageDialog(null, "Config : Erreur sauvegarde config.xml - " + e);
         }
     }
 

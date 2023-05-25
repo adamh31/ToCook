@@ -162,7 +162,6 @@ public class CryptageRSA {
         }
         laCle = laCle.replaceAll("\\n", "");
         laCle = laCle.trim();
-
         return Base64.getDecoder().decode(laCle);
 
     }

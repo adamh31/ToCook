@@ -4,6 +4,12 @@
  */
 package toCook.view;
 
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import toCook.DAO.DiffusionDAO;
+import toCook.model.Diffusion;
+
 /**
  *
  * @author t.sol
@@ -15,6 +21,7 @@ public class ProgJournee extends javax.swing.JFrame {
      */
     public ProgJournee() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         for(int i = 1; i <= 52; i++){
             this.jComboBox1.addItem("semaine " + i);
         }
@@ -111,15 +118,21 @@ public class ProgJournee extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        ArrayList<Diffusion> diffusions = DiffusionDAO.getLesDiffusionsSemaine(this.jComboBox1.getSelectedIndex() + 1);
+        
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setNumRows(0);
+        for(Diffusion diffusion : diffusions){
+            model.addRow(new Object[]{diffusion.getHoraire(), diffusion.getLeJour().toString(), diffusion.getLeProgramme().getlEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre()});
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         
-        modif m=new modif(); 
+        modif m=new modif();
         m.setVisible(true);
-        this.hide();
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

@@ -5,6 +5,7 @@
 package toCook.view;
 
 import java.awt.Color;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,6 +18,7 @@ public class modif extends javax.swing.JFrame {
      */
     public modif() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
        Color col=new Color(255,199,199);
        getContentPane().setBackground(col);
@@ -39,7 +41,7 @@ public class modif extends javax.swing.JFrame {
         entree_duree = new javax.swing.JTextField();
         entree_titre = new javax.swing.JTextField();
         entree_code = new javax.swing.JTextField();
-        enregistrer = new javax.swing.JButton();
+        annuler = new javax.swing.JButton();
         intervenant_modif = new javax.swing.JLabel();
         entree_intervenant = new javax.swing.JTextField();
         genre_modif = new javax.swing.JLabel();
@@ -59,6 +61,7 @@ public class modif extends javax.swing.JFrame {
         direct_entree = new javax.swing.JComboBox<>();
         categoriecsa_modif3 = new javax.swing.JLabel();
         direct_entree1 = new javax.swing.JComboBox<>();
+        enregistrer1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.S_RESIZE_CURSOR));
@@ -96,12 +99,12 @@ public class modif extends javax.swing.JFrame {
             }
         });
 
-        enregistrer.setFont(new java.awt.Font("ASimpleLife", 1, 12)); // NOI18N
-        enregistrer.setText("Enregistrer");
-        enregistrer.setBorderPainted(false);
-        enregistrer.addActionListener(new java.awt.event.ActionListener() {
+        annuler.setFont(new java.awt.Font("ASimpleLife", 1, 12)); // NOI18N
+        annuler.setText("Annuler");
+        annuler.setBorderPainted(false);
+        annuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enregistrerActionPerformed(evt);
+                annulerActionPerformed(evt);
             }
         });
 
@@ -221,6 +224,15 @@ public class modif extends javax.swing.JFrame {
             }
         });
 
+        enregistrer1.setFont(new java.awt.Font("ASimpleLife", 1, 12)); // NOI18N
+        enregistrer1.setText("Enregistrer");
+        enregistrer1.setBorderPainted(false);
+        enregistrer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enregistrer1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,14 +240,11 @@ public class modif extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(enregistrer))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(282, 282, 282)
                         .addComponent(top))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(titre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -258,10 +267,6 @@ public class modif extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(entree_categoriecsa1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(genre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(entree_genre, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,7 +277,19 @@ public class modif extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(direct_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(annuler)
+                                    .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(enregistrer1)
+                                        .addGap(86, 86, 86)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -320,7 +337,9 @@ public class modif extends javax.swing.JFrame {
                     .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(direct_entree1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(enregistrer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enregistrer1)
+                    .addComponent(annuler))
                 .addGap(31, 31, 31))
         );
 
@@ -339,9 +358,9 @@ public class modif extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_entree_codeActionPerformed
 
-    private void enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrerActionPerformed
+    private void annulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enregistrerActionPerformed
+    }//GEN-LAST:event_annulerActionPerformed
 
     private void entree_intervenantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entree_intervenantActionPerformed
         // TODO add your handling code here:
@@ -374,6 +393,10 @@ public class modif extends javax.swing.JFrame {
     private void direct_entree1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direct_entree1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_direct_entree1ActionPerformed
+
+    private void enregistrer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrer1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enregistrer1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,6 +434,7 @@ public class modif extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton annuler;
     private javax.swing.JLabel categoriecsa_modif;
     private javax.swing.JLabel categoriecsa_modif1;
     private javax.swing.JLabel categoriecsa_modif2;
@@ -420,7 +444,7 @@ public class modif extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> direct_entree;
     private javax.swing.JComboBox<String> direct_entree1;
     private javax.swing.JLabel duree_modif;
-    private javax.swing.JButton enregistrer;
+    private javax.swing.JButton enregistrer1;
     private javax.swing.JTextField entree_categoriecsa;
     private javax.swing.JTextField entree_categoriecsa1;
     private javax.swing.JTextField entree_code;

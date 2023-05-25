@@ -23,7 +23,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO programme (Id_Emission, Id_Programme, titre, duree, code) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO Programme (Id_Emission, Id_Programme, titre, duree, code) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, programme.getId());
             ps.setInt(2, programme.getEmission().getId());
@@ -42,7 +42,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE diffusion SET jour=?, horaire=?, direct=?, Id_Emission=null, Id_Programme=? WHERE Id_Diffusion=?";
+            String sql = "UPDATE Diffusion SET jour=?, horaire=?, direct=?, Id_Emission=null, Id_Programme=? WHERE Id_Diffusion=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setDate(1, (Date) diffusion.getLeJour());
             ps.setString(2, diffusion.getHoraire());
@@ -61,7 +61,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "DELETE FROM diffusion WHERE Id_Diffusion=?";
+            String sql = "DELETE FROM Diffusion WHERE Id_Diffusion=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
@@ -78,7 +78,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
     
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "SELECT * FROM programme WHERE Id_Programme=? AND Id_Emission=?";
+            String sql = "SELECT * FROM Programme WHERE Id_Programme=? AND Id_Emission=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.setInt(2, id_emission);
@@ -99,4 +99,5 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
         }
         return prog;
     }
+
 }

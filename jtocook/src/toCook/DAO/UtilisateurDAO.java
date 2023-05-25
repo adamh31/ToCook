@@ -18,7 +18,7 @@ public class UtilisateurDAO implements UtilisateurDAOInterface {
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO utilisateur (utpseudo, utnom, utprenom, utmp, utmail, utphrase, utadr1, utadr2, utcdpost, utnumpost) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO Utilisateur (utpseudo, utnom, utprenom, utmp, utmail, utphrase, utadr1, utadr2, utcdpost, utnumpost) VALUES (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, utilisateur.getUtPseudo());
             ps.setString(2, utilisateur.getUtNom());
@@ -43,7 +43,7 @@ public class UtilisateurDAO implements UtilisateurDAOInterface {
         try {
 
             Connection con = ConnectDB.getConnect();
-            String sql = "UPDATE utilisateur SET utnom=?, utprenom=?, utmp=?, utmail=?, utphrase=?, utadr1=?, utadr2=?, utcdpost=?, utnumpost=? WHERE utpseudo=?";
+            String sql = "UPDATE Utilisateur SET utnom=?, utprenom=?, utmp=?, utmail=?, utphrase=?, utadr1=?, utadr2=?, utcdpost=?, utnumpost=? WHERE utpseudo=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, utilisateur.getUtNom());
             ps.setString(2, utilisateur.getUtPrenom());
@@ -69,7 +69,7 @@ public class UtilisateurDAO implements UtilisateurDAOInterface {
         try {
 
             Connection con = ConnectDB.getConnect();
-            String sql = "delete from utilisateur  WHERE utpseudo=?";
+            String sql = "delete from Utilisateur  WHERE utpseudo=?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, pseudo);
             ps.executeUpdate();

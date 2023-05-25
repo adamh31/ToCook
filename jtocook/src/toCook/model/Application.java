@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class Application {
 
+    
     // La collection lesDiffusions est déjà remplie à partir de la base de données, elle contient tous
     // les éléments issus des tables Emission, Programme, Diffusion
     private ArrayList<Diffusion> lesDiffusions;
