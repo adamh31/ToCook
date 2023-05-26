@@ -31,7 +31,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             ps.setInt(4, programme.getDuree());
             ps.setString(5, programme.getLaCategorieCSA().getCode());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
@@ -50,7 +50,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             ps.setInt(4, programme.getEmission().getId());
             ps.setInt(5, programme.getId());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -65,7 +65,7 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");

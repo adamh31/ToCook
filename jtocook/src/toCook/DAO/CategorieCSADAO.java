@@ -27,7 +27,7 @@ public class CategorieCSADAO {
             ps.setString(1, categorieCSA.getCode());
             ps.setString(2, categorieCSA.getLibelle());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -43,7 +43,7 @@ public class CategorieCSADAO {
             ps.setString(1, categorieCSA.getLibelle());
             ps.setString(2, categorieCSA.getCode());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -58,7 +58,7 @@ public class CategorieCSADAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, code);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);

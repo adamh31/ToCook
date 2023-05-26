@@ -31,7 +31,7 @@ public class UtilisateurDAO implements UtilisateurDAOInterface {
             ps.setString(9, utilisateur.utCommune.getCode_Postal());
             ps.setString(10, utilisateur.utCommune.getNum_Postal());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");

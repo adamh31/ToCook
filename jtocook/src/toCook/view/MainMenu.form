@@ -42,7 +42,7 @@
           <Color blue="0" green="0" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ressources/toocoockk.png"/>
+          <Image iconType="3" name="/ressources/toocoock.PNG"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" Menu g&#xe9;n&#xe9;ral"/>
         <Property name="iconTextGap" type="int" value="22"/>

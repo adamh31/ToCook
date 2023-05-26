@@ -44,7 +44,7 @@ public class MainMenu extends javax.swing.JFrame {
         Entete.setBackground(new java.awt.Color(255,255,255,120));
         Entete.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Entete.setForeground(new java.awt.Color(255, 0, 0));
-        Entete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/toocoockk.png"))); // NOI18N
+        Entete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/toocoock.PNG"))); // NOI18N
         Entete.setText(" Menu général");
         Entete.setIconTextGap(22);
         Entete.setOpaque(true);
@@ -130,7 +130,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(info);
-        info.setBounds(20, 390, 101, 27);
+        info.setBounds(20, 390, 101, 26);
 
         abandon.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         abandon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ressources/escape_20.png"))); // NOI18N
@@ -142,7 +142,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(abandon);
-        abandon.setBounds(542, 390, 123, 27);
+        abandon.setBounds(542, 390, 123, 26);
 
         jPanel1.setBackground(new java.awt.Color(255, 199, 199));
         jPanel1.setForeground(new java.awt.Color(51, 51, 51));

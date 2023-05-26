@@ -30,7 +30,7 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             ps.setBoolean(4, diffusion.getDirect());
             ps.setInt(5, diffusion.getLeProgramme().getId());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
@@ -49,7 +49,7 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             ps.setInt(4, diffusion.getLeProgramme().getId());
             ps.setInt(5, diffusion.getId());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -64,7 +64,7 @@ public class DiffusionDAO implements DiffusionDAOInterface{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");

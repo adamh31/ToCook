@@ -33,7 +33,7 @@ public class EmissionDAO {
             ps.setString(6, emission.getOrigine());
             ps.setString(7, emission.getGenre());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -54,7 +54,7 @@ public class EmissionDAO {
             ps.setString(6, emission.getGenre());
             ps.setInt(7, emission.getId());
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
@@ -69,7 +69,7 @@ public class EmissionDAO {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, e);
