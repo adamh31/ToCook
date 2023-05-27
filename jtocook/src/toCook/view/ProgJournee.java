@@ -4,6 +4,7 @@
  */
 package toCook.view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -21,12 +22,14 @@ public class ProgJournee extends javax.swing.JFrame {
      */
     public ProgJournee() {
         initComponents();
+        
+       Color col = new Color(255,199,199);
+       this.getContentPane().setBackground(col);
+        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         for(int i = 1; i <= 52; i++){
             this.jComboBox1.addItem("semaine " + i);
         }
-        
-        
     }
 
     /**
@@ -45,7 +48,11 @@ public class ProgJournee extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programme");
+        setBackground(new java.awt.Color(255, 148, 148));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jTable1.setBackground(new java.awt.Color(255, 148, 148));
+        jTable1.setForeground(new java.awt.Color(255, 148, 148));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, "9:00", null, null, null},
@@ -65,7 +72,7 @@ public class ProgJournee extends javax.swing.JFrame {
             }
         });
         jTable1.setToolTipText("");
-        jTable1.setAutoscrolls(false);
+        jTable1.setGridColor(new java.awt.Color(255, 148, 148));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -80,6 +87,7 @@ public class ProgJournee extends javax.swing.JFrame {
         });
 
         Prog.setAlignment(java.awt.Label.CENTER);
+        Prog.setBackground(new java.awt.Color(255, 148, 148));
         Prog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Prog.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Prog.setText("Agenda du programme");
