@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import toCook.model.Diffusion;
 import toCook.model.Emission;
@@ -102,6 +103,61 @@ public class EmissionDAO {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return emission;
+    }
+    
+    public static Emission getLEmission(String titre) {
+        
+        Emission emission = new Emission();
+
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Emission WHERE titre=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1,  titre);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                emission.setId(rs.getInt("Id_Emission"));
+                emission.setTitre(rs.getString("titre"));
+                emission.setTitreOriginal(rs.getString("titre_original"));
+                emission.setAnneeProduction(rs.getInt("annee_production"));
+                emission.setNumSaison(rs.getInt("num_saison"));
+                emission.setGenre(rs.getString("code_1"));
+                emission.setOrigine(rs.getString("code"));
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return emission;
+    }
+    public static ArrayList<Emission> getLesEmission() {
+        
+        ArrayList<Emission> emissions = new ArrayList<Emission>();
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Emission";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Emission emission = new Emission();
+                emission.setId(rs.getInt("Id_Emission"));
+                emission.setTitre(rs.getString("titre"));
+                emission.setTitreOriginal(rs.getString("titre_original"));
+                emission.setAnneeProduction(rs.getInt("annee_production"));
+                emission.setNumSaison(rs.getInt("num_saison"));
+                emission.setGenre(rs.getString("code_1"));
+                emission.setOrigine(rs.getString("code"));
+                emissions.add(emission);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return emissions;
     }
     
 }

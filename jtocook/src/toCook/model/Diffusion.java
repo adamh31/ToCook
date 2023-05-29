@@ -82,7 +82,13 @@ public class Diffusion {
     public String toXML() {
         String xml = new String();
         xml += "<diffusion>";
-        // À COMPLÉTER . . . 
-        return new String();
+        xml += "<horaire>" + this.horaire + "</horaire>";
+        xml += "<duree>" + this.leProgramme.getDuree() + "</duree>";
+        xml += "<emission>" + this.leProgramme.getlEmission() + "</emission>";
+        xml += "<programme>" + this.leProgramme + "</programme>";
+        xml += "<csa>" + this.leProgramme.getLaCategorieCSA() + "</csa>";
+        xml += "</diffusion>";
+        
+        return xml;
     }
 }

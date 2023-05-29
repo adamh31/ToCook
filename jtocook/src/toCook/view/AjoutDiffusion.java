@@ -8,8 +8,8 @@ import java.awt.Color;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.sql.Date;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import toCook.DAO.CategorieCSADAO;
 import toCook.DAO.DiffusionDAO;
 import toCook.DAO.EmissionDAO;
@@ -23,7 +23,7 @@ import toCook.model.Programme;
  *
  * @author a.hammerlin
  */
-public class Modif extends javax.swing.JFrame {
+public class AjoutDiffusion extends javax.swing.JFrame {
 
     
     protected Diffusion diffusion;
@@ -31,17 +31,16 @@ public class Modif extends javax.swing.JFrame {
     protected Emission emission;
     /**
      * Creates new form modif
-     */
-
+     */  
     
-    public Modif(int id) {
+    
+    public AjoutDiffusion() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         Color col=new Color(255,199,199);
         getContentPane().setBackground(col);
         
-        this.diffusion = DiffusionDAO.getLaDiffusion(id);
         
         ArrayList<CategorieCSA> categorieCSAs = CategorieCSADAO.getLesCategorieCSA();
         for(CategorieCSA categorieCSA : categorieCSAs){
@@ -52,19 +51,32 @@ public class Modif extends javax.swing.JFrame {
         for(Emission emission : emissions){
             this.titre_combo.addItem(emission.getTitre());
         }
-       
-        this.entree_date.setText(diffusion.getLeJour().toString());
-        this.entree_hdebut.setText(diffusion.getHoraire());
-        this.entree_categoriecsa.setSelectedItem(diffusion.getLeProgramme().getLaCategorieCSA().getCode());
-        this.entree_duree.setText(Integer.toString(diffusion.getLeProgramme().getDuree()));
-        this.titre_combo.setSelectedItem(diffusion.getLeProgramme().getEmission().getTitre());
-        this.entree_origine.setText(diffusion.getLeProgramme().getEmission().getOrigine());
-        this.entree_genre.setText(diffusion.getLeProgramme().getEmission().getGenre());
-        this.entree_hfin.setText((LocalTime.parse(diffusion.getHoraire()).plusMinutes(diffusion.getLeProgramme().getDuree())).toString());
-        this.entree_direct.setSelectedIndex((diffusion.getDirect())? 1 : 0);
-        this.programme = this.diffusion.getLeProgramme();
-        this.emission = this.diffusion.getLeProgramme().getEmission();
         
+        for (int i = 1970; i <= 2070; i++) {
+            this.jAnnee.addItem(String.valueOf(i));
+        }
+        for (int i = 1; i <= 12; i++) {
+            if (i < 10) {
+                this.jMois.addItem("0" + String.valueOf(i));
+
+            } else {
+                this.jMois.addItem(String.valueOf(i));
+
+            }
+        }
+        for (int i = 1; i <= 31; i++) {
+            if (i < 10) {
+                this.jJour.addItem("0" + String.valueOf(i));
+
+            } else {
+
+                this.jJour.addItem(String.valueOf(i));
+            }
+
+        }
+        
+       
+        this.jAnnee.setSelectedItem("2023");
         
       
     }
@@ -83,15 +95,17 @@ public class Modif extends javax.swing.JFrame {
         intervenant_modif = new javax.swing.JLabel();
         entree_intervenant = new javax.swing.JTextField();
         paneau_haut = new javax.swing.JPanel();
-        date_modif = new javax.swing.JLabel();
-        entree_date = new javax.swing.JTextField();
         hdebut_modif = new javax.swing.JLabel();
         entree_hdebut = new javax.swing.JTextField();
-        hfin_modif = new javax.swing.JLabel();
-        entree_hfin = new javax.swing.JTextField();
         categoriecsa_modif2 = new javax.swing.JLabel();
         entree_direct = new javax.swing.JComboBox<>();
         top2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jAnnee = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jMois = new javax.swing.JComboBox<>();
+        jJour = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         categoriecsa_modif1 = new javax.swing.JLabel();
         entree_categoriecsa1 = new javax.swing.JTextField();
         categoriecsa_modif3 = new javax.swing.JLabel();
@@ -103,16 +117,16 @@ public class Modif extends javax.swing.JFrame {
         categoriecsa_modif = new javax.swing.JLabel();
         entree_categoriecsa = new javax.swing.JComboBox<>();
         top3 = new javax.swing.JLabel();
-        combo_programme = new javax.swing.JComboBox<>();
         titreprogramme_modif = new javax.swing.JLabel();
+        combo_programme = new javax.swing.JComboBox<>();
         paneau_haut2 = new javax.swing.JPanel();
+        titre_modif = new javax.swing.JLabel();
         origine_modif = new javax.swing.JLabel();
         entree_origine = new javax.swing.JTextField();
         genre_modif = new javax.swing.JLabel();
         entree_genre = new javax.swing.JTextField();
         top1 = new javax.swing.JLabel();
         titre_combo = new javax.swing.JComboBox<>();
-        titre_modif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -141,14 +155,8 @@ public class Modif extends javax.swing.JFrame {
 
         paneau_haut.setBackground(new java.awt.Color(255, 148, 148));
 
-        date_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
-        date_modif.setText("Date");
-
         hdebut_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         hdebut_modif.setText("Heure debut");
-
-        hfin_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
-        hfin_modif.setText("Heure fin");
 
         categoriecsa_modif2.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         categoriecsa_modif2.setText("En direct ?");
@@ -159,36 +167,45 @@ public class Modif extends javax.swing.JFrame {
         top2.setForeground(new java.awt.Color(51, 51, 51));
         top2.setText("Diffusion");
 
+        jLabel1.setText("Année");
+
+        jLabel2.setText("Mois");
+
+        jLabel3.setText("Jour");
+
         javax.swing.GroupLayout paneau_hautLayout = new javax.swing.GroupLayout(paneau_haut);
         paneau_haut.setLayout(paneau_hautLayout);
         paneau_hautLayout.setHorizontalGroup(
             paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneau_hautLayout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(top2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(paneau_hautLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneau_hautLayout.createSequentialGroup()
-                        .addComponent(hdebut_modif)
-                        .addGap(18, 18, 18)
-                        .addComponent(entree_hdebut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneau_hautLayout.createSequentialGroup()
-                        .addComponent(hfin_modif)
-                        .addGap(18, 18, 18)
-                        .addComponent(entree_hfin, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneau_hautLayout.createSequentialGroup()
-                        .addComponent(date_modif)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(entree_date, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneau_hautLayout.createSequentialGroup()
-                        .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(entree_direct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(hdebut_modif)
+                .addGap(18, 18, 18)
+                .addComponent(entree_hdebut, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(categoriecsa_modif2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(entree_direct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
+            .addGroup(paneau_hautLayout.createSequentialGroup()
+                .addGroup(paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(paneau_hautLayout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(top2))
+                    .addGroup(paneau_hautLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jMois, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         paneau_hautLayout.setVerticalGroup(
             paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +220,13 @@ public class Modif extends javax.swing.JFrame {
                     .addComponent(entree_direct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(paneau_hautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hfin_modif)
-                    .addComponent(entree_hfin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date_modif)
-                    .addComponent(entree_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMois, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         categoriecsa_modif1.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
@@ -228,25 +247,27 @@ public class Modif extends javax.swing.JFrame {
                 enregistrer1MouseClicked(evt);
             }
         });
-        enregistrer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enregistrer1ActionPerformed(evt);
-            }
-        });
 
         paneau_haut1.setBackground(new java.awt.Color(255, 148, 148));
 
         duree_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         duree_modif.setText("Duree :");
 
+        entree_duree.setEditable(false);
         entree_duree.setToolTipText("");
 
         categoriecsa_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         categoriecsa_modif.setText("Categorie CSA");
 
+        entree_categoriecsa.setEnabled(false);
+        entree_categoriecsa.setFocusable(false);
+
         top3.setFont(new java.awt.Font("ASimpleLife", 1, 18)); // NOI18N
         top3.setForeground(new java.awt.Color(51, 51, 51));
         top3.setText("Programme");
+
+        titreprogramme_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
+        titreprogramme_modif.setText("Titre :");
 
         combo_programme.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -254,20 +275,14 @@ public class Modif extends javax.swing.JFrame {
             }
         });
 
-        titreprogramme_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
-        titreprogramme_modif.setText("Titre :");
-
         javax.swing.GroupLayout paneau_haut1Layout = new javax.swing.GroupLayout(paneau_haut1);
         paneau_haut1.setLayout(paneau_haut1Layout);
         paneau_haut1Layout.setHorizontalGroup(
             paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneau_haut1Layout.createSequentialGroup()
                 .addGroup(paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneau_haut1Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(top3))
-                    .addGroup(paneau_haut1Layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneau_haut1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(duree_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,40 +291,51 @@ public class Modif extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(entree_categoriecsa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(paneau_haut1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(titreprogramme_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(combo_programme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addGroup(paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneau_haut1Layout.createSequentialGroup()
+                                .addGap(179, 179, 179)
+                                .addComponent(top3))
+                            .addGroup(paneau_haut1Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(titreprogramme_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(combo_programme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         paneau_haut1Layout.setVerticalGroup(
             paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneau_haut1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(top3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(duree_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entree_duree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoriecsa_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entree_categoriecsa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(paneau_haut1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titreprogramme_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(combo_programme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         paneau_haut2.setBackground(new java.awt.Color(255, 148, 148));
 
+        titre_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
+        titre_modif.setText("Titre :");
+
         origine_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         origine_modif.setText("Origine :");
 
+        entree_origine.setEditable(false);
         entree_origine.setToolTipText("");
 
         genre_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
         genre_modif.setText("Genre :");
 
+        entree_genre.setEditable(false);
         entree_genre.setToolTipText("");
 
         top1.setFont(new java.awt.Font("ASimpleLife", 1, 18)); // NOI18N
@@ -321,9 +347,6 @@ public class Modif extends javax.swing.JFrame {
                 titre_comboActionPerformed(evt);
             }
         });
-
-        titre_modif.setFont(new java.awt.Font("ASimpleLife", 1, 14)); // NOI18N
-        titre_modif.setText("Titre :");
 
         javax.swing.GroupLayout paneau_haut2Layout = new javax.swing.GroupLayout(paneau_haut2);
         paneau_haut2.setLayout(paneau_haut2Layout);
@@ -358,16 +381,15 @@ public class Modif extends javax.swing.JFrame {
                 .addComponent(top1)
                 .addGap(18, 18, 18)
                 .addGroup(paneau_haut2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(genre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entree_genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(paneau_haut2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(titre_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(titre_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(titre_combo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneau_haut2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(origine_modif, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entree_origine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -431,7 +453,7 @@ public class Modif extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(categoriecsa_modif3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(entree_culinaire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(paneau_haut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -450,41 +472,19 @@ public class Modif extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_annulerActionPerformed
 
-    private void enregistrer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enregistrer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enregistrer1ActionPerformed
-
     private void annulerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_annulerMouseClicked
         this.dispose();
     }//GEN-LAST:event_annulerMouseClicked
 
     private void enregistrer1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enregistrer1MouseClicked
-        this.diffusion.setLeJour(java.sql.Date.valueOf(LocalDate.parse(this.entree_date.getText())));
-        this.diffusion.setDirect(this.entree_direct.getSelectedIndex() == 1);
+        this.diffusion = new Diffusion();
+        this.diffusion.setDirect(this.entree_direct.getSelectedIndex() == 1 ? true : false);
         this.diffusion.setHoraire(this.entree_hdebut.getText());
-        this.diffusion.getLeProgramme().setDuree(Integer.parseInt(this.entree_duree.getText()));
-        this.diffusion.getLeProgramme().getLaCategorieCSA().setCode((String) this.entree_categoriecsa.getSelectedItem());
-        this.diffusion.getLeProgramme().getlEmission().setOrigine(this.entree_origine.getText());
-        this.diffusion.getLeProgramme().getlEmission().setTitre(this.titre_combo.getSelectedItem().toString());
-        this.diffusion.getLeProgramme().getlEmission().setGenre(this.entree_genre.getText());
-        
-        try{
-            DiffusionDAO.update(this.diffusion);
-            ProgrammeDAO.update(this.diffusion.getLeProgramme());
-            EmissionDAO.update(this.diffusion.getLeProgramme().getlEmission());  
-            JOptionPane.showMessageDialog(null, "enregistrement mis à jour");
-        } catch(Exception e){
-            
-        }
-    }//GEN-LAST:event_enregistrer1MouseClicked
+        this.diffusion.setLeJour(Date.valueOf(LocalDate.parse(this.jAnnee.getSelectedItem() + "-" + this.jMois.getSelectedItem() + "-" + this.jJour.getSelectedItem())));
+        this.diffusion.setLeProgramme(this.programme);
+        DiffusionDAO.create(this.diffusion);
 
-    private void combo_programmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_programmeActionPerformed
-        if(this.combo_programme.getItemCount() > 0){
-            this.programme = ProgrammeDAO.getLeProgrammeTitre(this.combo_programme.getSelectedItem().toString(), emission.getId());
-            this.entree_duree.setText(String.valueOf(this.programme.getDuree()));
-            this.entree_categoriecsa.setSelectedItem(this.programme.getLaCategorieCSA().getCode());
-        }
-    }//GEN-LAST:event_combo_programmeActionPerformed
+    }//GEN-LAST:event_enregistrer1MouseClicked
 
     private void titre_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titre_comboActionPerformed
         this.combo_programme.removeAllItems();
@@ -497,6 +497,14 @@ public class Modif extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_titre_comboActionPerformed
 
+    private void combo_programmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_programmeActionPerformed
+        if(this.combo_programme.getItemCount() > 0){
+            this.programme = ProgrammeDAO.getLeProgrammeTitre(this.combo_programme.getSelectedItem().toString(), emission.getId());
+            this.entree_duree.setText(String.valueOf(this.programme.getDuree()));
+            this.entree_categoriecsa.setSelectedItem(this.programme.getLaCategorieCSA().getCode());
+        }
+    }//GEN-LAST:event_combo_programmeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton annuler;
@@ -505,24 +513,26 @@ public class Modif extends javax.swing.JFrame {
     private javax.swing.JLabel categoriecsa_modif2;
     private javax.swing.JLabel categoriecsa_modif3;
     private javax.swing.JComboBox<String> combo_programme;
-    private javax.swing.JLabel date_modif;
     private javax.swing.JLabel duree_modif;
     private javax.swing.JButton enregistrer1;
     private javax.swing.JComboBox<String> entree_categoriecsa;
     private javax.swing.JTextField entree_categoriecsa1;
     private javax.swing.JComboBox<String> entree_culinaire;
-    private javax.swing.JTextField entree_date;
     private javax.swing.JComboBox<String> entree_direct;
     private javax.swing.JTextField entree_duree;
     private javax.swing.JTextField entree_genre;
     private javax.swing.JTextField entree_hdebut;
-    private javax.swing.JTextField entree_hfin;
     private javax.swing.JTextField entree_intervenant;
     private javax.swing.JTextField entree_origine;
     private javax.swing.JLabel genre_modif;
     private javax.swing.JLabel hdebut_modif;
-    private javax.swing.JLabel hfin_modif;
     private javax.swing.JLabel intervenant_modif;
+    private javax.swing.JComboBox<String> jAnnee;
+    private javax.swing.JComboBox<String> jJour;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> jMois;
     private javax.swing.JLabel origine_modif;
     private javax.swing.JPanel paneau_haut;
     private javax.swing.JPanel paneau_haut1;

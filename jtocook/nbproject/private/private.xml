@@ -3,24 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/EmissionDAOInterface.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Programme.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/UtilisateurDAO.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/DiffusionDAOInterface.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/UtilisateurDAOInterface.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/technic/XMLLocal.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/view/Login.java</file>
             <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/view/ProgJournee.java</file>
             <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/EmissionDAO.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Genre.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/CategorieCSADAOInterface.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/CategorieCSA.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/CategorieCSADAO.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Application.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/view/AgendaTV.java</file>
             <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/DiffusionDAO.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/test/toCook/model/DiffusionTest.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Diffusion.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/view/MainMenu.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Configuration.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/view/modif.java</file>
+            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/technic/CTableRendu.java</file>
             <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/technic/ConnectDB.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/ProgrammeDAO.java</file>
             <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/model/Emission.java</file>
-            <file>file:/C:/Users/Administrator/Documents/Git/ToCook/jtocook/src/toCook/DAO/ProgrammeDAOInterface.java</file>
         </group>
     </open-files>
 </project-private>

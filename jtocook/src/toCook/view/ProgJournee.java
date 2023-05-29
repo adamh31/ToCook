@@ -6,10 +6,13 @@ package toCook.view;
 
 import java.util.Date;
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import toCook.DAO.DiffusionDAO;
+import toCook.model.Application;
 import toCook.model.Diffusion;
 
 /**
@@ -23,14 +26,39 @@ public class ProgJournee extends javax.swing.JFrame {
      */
     public ProgJournee() {
         initComponents();
-        
-       Color col = new Color(255,199,199);
-       this.getContentPane().setBackground(col);
-        
+
+        Color col = new Color(255, 199, 199);
+        this.getContentPane().setBackground(col);
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        for(int i = 1; i <= 52; i++){
+        for (int i = 1; i <= 52; i++) {
             this.jComboBox1.addItem("semaine " + i);
         }
+        for (int i = 1970; i <= 2070; i++) {
+            this.jAnnee.addItem(String.valueOf(i));
+        }
+        for (int i = 1; i <= 12; i++) {
+            if (i < 10) {
+                this.jMois.addItem("0" + String.valueOf(i));
+
+            } else {
+                this.jMois.addItem(String.valueOf(i));
+
+            }
+        }
+        for (int i = 1; i <= 31; i++) {
+            if (i < 10) {
+                this.jJour.addItem("0" + String.valueOf(i));
+
+            } else {
+
+                this.jJour.addItem(String.valueOf(i));
+            }
+
+        }
+
+        this.jAnnee.setSelectedItem("2023");
+
     }
 
     /**
@@ -46,7 +74,14 @@ public class ProgJournee extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         Prog = new java.awt.Label();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
+        jJour = new javax.swing.JComboBox<>();
+        jMois = new javax.swing.JComboBox<>();
+        jAnnee = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jAjouter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programme");
@@ -54,7 +89,7 @@ public class ProgJournee extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTable1.setBackground(new java.awt.Color(255, 148, 148));
-        jTable1.setForeground(new java.awt.Color(255, 148, 148));
+        jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, "9:00", null, null, null},
@@ -94,10 +129,28 @@ public class ProgJournee extends javax.swing.JFrame {
         Prog.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Prog.setText("Agenda du programme");
 
-        jToggleButton1.setText("Exporter cette semaine");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Exporter en XML");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jLabel1.setText("Année");
+
+        jLabel2.setText("Mois");
+
+        jLabel3.setText("Jour");
+
+        jAjouter.setText("Ajouter");
+        jAjouter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jAjouterMouseClicked(evt);
+            }
+        });
+        jAjouter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jAjouterActionPerformed(evt);
             }
         });
 
@@ -108,17 +161,30 @@ public class ProgJournee extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(188, 188, 188)
-                                .addComponent(jToggleButton1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Prog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Prog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jAjouter)
+                        .addGap(132, 132, 132)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jMois, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(152, 152, 152)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -129,7 +195,14 @@ public class ProgJournee extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jJour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jMois, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jAjouter))
                 .addGap(56, 56, 56)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -140,10 +213,10 @@ public class ProgJournee extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         ArrayList<Diffusion> diffusions = DiffusionDAO.getLesDiffusionsSemaine(this.jComboBox1.getSelectedIndex() + 1);
-        
+
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setNumRows(0);
-        for(Diffusion diffusion : diffusions){
+        for (Diffusion diffusion : diffusions) {
             model.addRow(new Object[]{diffusion.getId(), diffusion.getHoraire(), diffusion.getLeJour().toString(), diffusion.getLeProgramme().getlEmission().getTitre() + " " + diffusion.getLeProgramme().getTitre()});
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -151,23 +224,41 @@ public class ProgJournee extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int currentRow = this.jTable1.getSelectedRow();
-        
-        modif m = new modif((int) this.jTable1.getValueAt(currentRow, 0));
+
+        Modif m = new Modif((int) this.jTable1.getValueAt(currentRow, 0));
         m.setVisible(true);
-        
+
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        try {
+            Application.diffusionsXML(LocalDate.parse(this.jAnnee.getSelectedItem() + "-" + this.jMois.getSelectedItem() + "-" + this.jJour.getSelectedItem()));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jAjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAjouterActionPerformed
         // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_jAjouterActionPerformed
+
+    private void jAjouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jAjouterMouseClicked
+        AjoutDiffusion ajout = new AjoutDiffusion();
+        ajout.setVisible(true);
+    }//GEN-LAST:event_jAjouterMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label Prog;
+    private javax.swing.JButton jAjouter;
+    private javax.swing.JComboBox<String> jAnnee;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jJour;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JComboBox<String> jMois;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

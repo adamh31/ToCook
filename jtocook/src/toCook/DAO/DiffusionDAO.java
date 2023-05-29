@@ -4,6 +4,7 @@
  */
 package toCook.DAO;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import toCook.technic.ConnectDB;
 import javax.swing.JOptionPane;
@@ -22,18 +23,19 @@ public class DiffusionDAO implements DiffusionDAOInterface{
 
         try {
             Connection con = ConnectDB.getConnect();
-            String sql = "INSERT INTO Diffusion (Id_Diffusion, jour, horaire, direct, Id_Programme) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO Diffusion (Id_Diffusion, jour, horaire, direct, Id_Programme, Id_Emission) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, diffusion.getId());
             ps.setDate(2, (Date) diffusion.getLeJour());
             ps.setString(3, diffusion.getHoraire());
             ps.setBoolean(4, diffusion.getDirect());
             ps.setInt(5, diffusion.getLeProgramme().getId());
+            ps.setInt(6, diffusion.getLeProgramme().getlEmission().getId());
             ps.executeUpdate();
-            //JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
+            JOptionPane.showMessageDialog(null, "DB : Enregistrement créé !");
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     
@@ -101,6 +103,8 @@ public class DiffusionDAO implements DiffusionDAOInterface{
         return diffusion;
     }
     
+   
+    
     public static ArrayList<Diffusion> getLesDiffusionsSemaine(int semaine){
         
         int jourMin = semaine * 7;
@@ -136,4 +140,40 @@ public class DiffusionDAO implements DiffusionDAOInterface{
         }
         return diffusions;
     }
+    
+    public static ArrayList<Diffusion> getLesDiffusionsJour(LocalDate date){
+        
+        
+        ArrayList<Diffusion> diffusions = new ArrayList<Diffusion>();
+        
+        try{
+            
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Diffusion WHERE jour=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, Date.valueOf(date));
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Programme prog = ProgrammeDAO.getLeProgramme(rs.getInt("Id_Programme"), rs.getInt("Id_Emission"));
+                
+                
+                Diffusion diffusion = new Diffusion();
+                diffusion.setDirect(rs.getBoolean("direct"));
+                diffusion.setLeProgramme(prog);
+                diffusion.setLeJour(rs.getDate("jour"));
+                diffusion.setHoraire(rs.getString("horaire"));
+                diffusion.setId(rs.getInt("Id_Diffusion"));
+                
+                diffusions.add(diffusion);
+            }
+            
+        } catch(Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return diffusions;
+    }
+    
+    
 }

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import toCook.model.Diffusion;
 import toCook.model.Programme;
@@ -72,7 +73,9 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
         }
     }
     
-    public static Programme getLeProgramme(int id, int id_emission) {;;
+   
+    
+    public static Programme getLeProgramme(int id, int id_emission) {
 
         Programme prog = new Programme();
     
@@ -98,6 +101,61 @@ public class ProgrammeDAO implements ProgrammeDAOInterface{
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
         return prog;
+    }
+    
+    public static Programme getLeProgrammeTitre(String titre, int id_emission) {
+
+        Programme prog = new Programme();
+    
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Programme WHERE titre=? AND Id_Emission=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, titre);
+            ps.setInt(2, id_emission);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+               prog.setId(rs.getInt("Id_Programme"));
+               prog.setlEmission(EmissionDAO.getLEmission(rs.getInt("Id_Emission")));
+               prog.setTitre(rs.getString("titre"));
+               prog.setDuree(rs.getInt("duree"));
+               prog.setLaCategorieCSA(CategorieCSADAO.getLaCategorieCSA(rs.getString("code")));
+
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return prog;
+    }
+    
+     public static ArrayList<Programme> getLesProgramme(int id_emission) {
+
+        ArrayList<Programme> programmes = new ArrayList<Programme>();
+        try {
+            Connection con = ConnectDB.getConnect();
+            String sql = "SELECT * FROM Programme WHERE Id_Emission=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id_emission);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               Programme prog = new Programme();
+               prog.setId(rs.getInt("Id_Programme"));
+               prog.setlEmission(EmissionDAO.getLEmission(rs.getInt("Id_Emission")));
+               prog.setTitre(rs.getString("titre"));
+               prog.setDuree(rs.getInt("duree"));
+               prog.setLaCategorieCSA(CategorieCSADAO.getLaCategorieCSA(rs.getString("code")));
+               programmes.add(prog);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return programmes;
     }
 
 }
